@@ -1,4 +1,4 @@
-package POO.ExcercicioN.Questao1;
+package POO.ExcercicioN;
 public class Pessoa {
 	private String nome, endreco, telefone;
 

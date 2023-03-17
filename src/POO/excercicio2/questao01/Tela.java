@@ -3,7 +3,7 @@ import javax.swing.*;
 
 public class Tela {  
 	JTextField xField = new JTextField(5);
-    JTextField yField = new JTextField(5);
+	JTextField yField = new JTextField(5);
 
     JPanel myPanel = new JPanel();
 //    myPanel.add(new JLabel("x:"));

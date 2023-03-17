@@ -3,7 +3,6 @@ package POO.excercicioM;
 public class Administrativo extends Assistente{
     // Fields
     private String turno;
-
     // Method - Getters and Setters
     /**
      * @return the bonus

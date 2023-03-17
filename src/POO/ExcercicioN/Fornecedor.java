@@ -1,6 +1,4 @@
-package POO.ExcercicioN.Questao2;
-
-import POO.ExcercicioN.Questao1.Pessoa;
+package POO.ExcercicioN;
 
 public class Fornecedor extends Pessoa {
 	private double  valorCredito, valorDIvida;

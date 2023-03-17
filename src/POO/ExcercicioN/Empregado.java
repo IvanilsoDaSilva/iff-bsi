@@ -1,10 +1,8 @@
-package POO.ExcercicioN.Questao3;
+package POO.ExcercicioN;
 
-import POO.ExcercicioN.Questao1.Pessoa;
-
-public class Empregado extends Pessoa {
-	private int codigoSetor;
-	private double salarioBase, imposto;
+public abstract class Empregado extends Pessoa {
+	protected int codigoSetor;
+	protected double salarioBase, imposto;
 	
 	public int getCodigoSetor() {
 		return codigoSetor;
@@ -25,11 +23,9 @@ public class Empregado extends Pessoa {
 		this.imposto = imposto;
 	}
 	
-	public double calcularSalario() {
-		return salarioBase - imposto; // Não sei a formula.
-	}
-	
 	public Empregado() {
 		super();
 	}
+	
+	public abstract double calcularSalario();
 }
