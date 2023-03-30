@@ -1,4 +1,4 @@
-package POO.Prova01.Questao01;
+package POO.prova01.questao01;
 
 public class Livro {
 	// Variáveis

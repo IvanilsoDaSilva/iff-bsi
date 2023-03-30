@@ -1,4 +1,4 @@
-package POO.Excercicio05;
+package POO.excercicio05;
 
 public abstract class Empregado extends Pessoa {
 	protected int codigoSetor;

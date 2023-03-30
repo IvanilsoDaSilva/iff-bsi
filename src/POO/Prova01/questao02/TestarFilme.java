@@ -1,4 +1,4 @@
-package POO.Prova01.Questao02;
+package POO.prova01.questao02;
 
 public class TestarFilme {
 	public static void main(String[] args) {

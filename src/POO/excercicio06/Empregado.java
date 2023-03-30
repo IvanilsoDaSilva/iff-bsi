@@ -1,4 +1,4 @@
-package POO.Excercicio06;
+package POO.excercicio06;
 
 public class Empregado extends Pessoa implements Pagamento {
 	// FIelds
