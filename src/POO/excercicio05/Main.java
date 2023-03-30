@@ -1,4 +1,4 @@
-package POO.Excercicio05;
+package POO.excercicio05;
 
 public class Main {
 	public static void main(String[] args) {
