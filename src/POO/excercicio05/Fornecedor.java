@@ -1,4 +1,4 @@
-package POO.Excercicio05;
+package POO.excercicio05;
 
 public class Fornecedor extends Pessoa {
 	private double  valorCredito, valorDIvida;

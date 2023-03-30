@@ -1,4 +1,4 @@
-package POO.Excercicio06;
+package POO.excercicio06;
 
 public class Fatura implements Pagamento {
 	// FIelds
