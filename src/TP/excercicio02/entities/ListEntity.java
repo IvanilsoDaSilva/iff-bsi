@@ -4,66 +4,156 @@ import TP.excercicio02.interfaces.ListInterface;
 
 public class ListEntity<T> implements ListInterface<T> {
 	// Fields
-	private int length;
+	private NoEntity<T> first = null;
+	private NoEntity<T> last = null;
+	private int length = 0;
 	
 	// Methods - Construct
 	public ListEntity() {
 	}
 	
 	public ListEntity(T data) {
-	}
-	
-	// Methods - Encapsulation
-	public int length() {
-		return this.length;
+		this.length++;
+		this.first = new NoEntity<T>(data, null);
+		this.last = first;
 	}
 	
 	// Methods - Others
 	@Override
-	public void add(T data) {
-		// TODO Auto-generated method stub
+	public InteratorEntity<T> getInterator() {
+		return new InteratorEntity<T>(this.first);
 	}
-
+	
+	@Override
+	public int length() {
+		return this.length;
+	}
+	
+	@Override
+	public void add(T data) {
+		this.length++;
+		if (this.first == null) {
+			this.first = new NoEntity<T>(data, null);
+			this.last = first;
+		} else {
+			NoEntity<T> No = new NoEntity<T>(data, null);
+			this.last.setNext(No);
+			this.last = No;
+			if (first.getNext() == null) {
+				first.setNext(this.last);
+			}
+		}
+	}
+	
 	@Override
 	public void addFirst(T data) {
-		// TODO Auto-generated method stub
+		length++;
+		if (this.first == null) {
+			this.first = new NoEntity<T>(data, null);
+			this.last = first;
+		} else {
+			NoEntity<T> aux = this.first;
+			this.first = new NoEntity<T>(data, aux);
+		}
 	}
 
 	@Override
 	public T find(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		if (index>this.length || index<1) {
+			return null;
+			// Erro
+		} else {
+			NoEntity<T> no = this.first;
+			for(int i = 0; i < index; i++) {
+				no = no.getNext();
+			}
+			return no.getData();
+		}
 	}
 
 	@Override
 	public T findFirst() {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.length == 0) {
+			// Erro
+			return null;
+		} else {
+			return this.first.getData();
+		}
 	}
 
 	@Override
 	public T findLast() {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.length == 0) {
+			// Erro
+			return null;
+		} else {
+			return this.last.getData();
+		}
 	}
-
+	
 	@Override
 	public void update(int index, T data) {
-		// TODO Auto-generated method stub
+		if (index>this.length || index<1) {
+			// Erro
+		} else {
+			NoEntity<T> no = this.first;
+			for(int i = 0; i < index; i++) {
+				no = no.getNext();
+			}
+			no.setData(data);
+		}
 	}
-
+	
 	@Override
 	public void remove(int index) {
-		// TODO Auto-generated method stub
+		if (index>this.length || index<1) {
+			// Erro
+		} else {
+			this.length--;
+			NoEntity<T> no = this.first;
+			for(int i = 0; i < index-1; i++) {
+				no = no.getNext();
+			}
+//			no.setNext(no.getNext().getNext());
+		}
 	}
-
+	
 	@Override
 	public void removeFirst() {
-		// TODO Auto-generated method stub
+		if (this.length == 0) {
+			// Erro
+		} else {
+			length--;
+			this.first = this.first.getNext();
+		}
 	}
-
+	
 	@Override
 	public void removeLast() {
-		// TODO Auto-generated method stub
+		if (this.length == 0) {
+			// Erro
+		} else {
+			length--;
+			NoEntity<T> no = this.first;
+			
+			for(int i = 0; i < this.length; i++) {
+				no = no.getNext();
+			}
+			no.setNext(null);
+		}
+	}
+	
+	@Override
+	public String toString() {
+		String string;
+		NoEntity<T> no = this.first;
+		
+		string = "[";
+		for(int i = 0; i < this.length; i++) {
+			string = string+no.getData().toString()+",";
+			no = no.getNext();
+		}
+		string = string+"]";
+		return string;
 	}
 }

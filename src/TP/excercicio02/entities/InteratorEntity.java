@@ -18,13 +18,15 @@ public class InteratorEntity<T> implements InteratorInterface<T>{
 
 	// Methods - Others
 	@Override
-	public NoEntity<T> getNext() {
-		return this.current.getNext();
+	public T getNextData() {
+		T aux = current.getData();
+		this.current = this.current.getNext();
+		return aux;
 	}
 
 	@Override
 	public Boolean isLast() {
-		if (current.getNext() == null) {
+		if (current == null) {
 			return true;
 		} else {
 			return false;
