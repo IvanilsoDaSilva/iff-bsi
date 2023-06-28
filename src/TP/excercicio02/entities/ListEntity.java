@@ -25,7 +25,7 @@ public class ListEntity<T> implements ListInterface<T> {
 	}
 	
 	@Override
-	public int length() {
+	public Integer length() {
 		return this.length;
 	}
 	
@@ -56,10 +56,29 @@ public class ListEntity<T> implements ListInterface<T> {
 			this.first = new NoEntity<T>(data, aux);
 		}
 	}
+	
+	public void addToIndex(Integer index, T data) {
+		if (index>this.length || index<0) {
+			// Erro
+		} else if(index == 0) {
+			NoEntity<T> aux = this.first;
+			this.first = new NoEntity<T>(data, aux);
+			length++;
+		} else {
+			NoEntity<T> no = this.first;
+			for(int i = 0; i < index-1; i++) {
+				no = no.getNext();
+			}
+			
+			NoEntity<T> aux = no.getNext();
+			no.setNext(new NoEntity<T>(data, aux));
+			length++;
+		}
+	}
 
 	@Override
-	public T find(int index) {
-		if (index>this.length || index<1) {
+	public T findToIndex(Integer index) {
+		if (index>this.length || index<0) {
 			return null;
 			// Erro
 		} else {
@@ -69,6 +88,28 @@ public class ListEntity<T> implements ListInterface<T> {
 			}
 			return no.getData();
 		}
+	}
+	
+	@Override
+	public Integer findToData(T data) {
+		NoEntity<T> no = this.first;
+		Integer index = -1;
+		
+		while(no != null) {
+			index++; 
+			
+			if (no.getData().equals(data)) {
+				break;
+			}
+			
+			no = no.getNext();
+		}
+		
+		if (no == null) {
+			index = null;
+		}
+		
+		return index;
 	}
 
 	@Override
@@ -92,7 +133,7 @@ public class ListEntity<T> implements ListInterface<T> {
 	}
 	
 	@Override
-	public void update(int index, T data) {
+	public void updateToIndex(Integer index, T data) {
 		if (index>this.length || index<1) {
 			// Erro
 		} else {
@@ -105,7 +146,7 @@ public class ListEntity<T> implements ListInterface<T> {
 	}
 	
 	@Override
-	public void remove(int index) {
+	public void removeToIndex(Integer index) {
 		if (index>this.length || index<1) {
 			// Erro
 		} else {
