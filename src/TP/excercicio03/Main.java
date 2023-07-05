@@ -21,11 +21,11 @@ public class Main {
 		StackEntity_Sequencial<Integer> pilha = new StackEntity_Sequencial(new Integer[] {1, 2, 3});
 		System.out.println("Para string: "+pilha.toString());
 		System.out.println("Adicionar \"segundo\": "+pilha.push(4));
-	
-//		StackEntity_Sequencial<Integer> pilha = new StackEntity_Sequencial<Integer>(new Integer[] {1,2}, 3);
+		
+//		StackEntity_Sequencial<String> pilha = new StackEntity_Sequencial("primeiro", 10);
 //		System.out.println("Para string: "+pilha.toString());
-//		System.out.println("Adicionar \"4\": "+pilha.push(3));
-//		System.out.println("Adicionar \"5\": "+pilha.push(4));
+//		System.out.println("Adicionar \"segundo\": "+pilha.push("segundo"));
+//		System.out.println("Adicionar \"terceiro\": "+pilha.push("terceiro"));
 		
 		// Chamada dos metodos da pilha encadeada e sequencial
 		System.out.println("Para string: "+pilha.toString());
