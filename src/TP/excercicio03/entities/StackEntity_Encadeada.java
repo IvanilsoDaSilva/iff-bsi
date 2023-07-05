@@ -1,6 +1,6 @@
 package TP.excercicio03.entities;
 
-import TP.excercicio02.entities.NoEntity;
+import TP.excercicio03.entities.NoEntity;
 import TP.excercicio03.interfaces.StackInterface;
 
 public class StackEntity_Encadeada<T> implements StackInterface<T> {
@@ -43,7 +43,7 @@ public class StackEntity_Encadeada<T> implements StackInterface<T> {
 	}
 	
 	public boolean isEmpity() {
-		if (this.first == null) {
+		if (this.length == 0) {
 			return true;
 		} else {
 			return false;
@@ -51,9 +51,10 @@ public class StackEntity_Encadeada<T> implements StackInterface<T> {
 	}
 
 	@Override
-	public void push(T data) {
+	public boolean push(T data) {
 		NoEntity<T> aux = this.first;
 		this.first = new NoEntity<T>(data, aux);
+		return true;
 	}
 	
 	@Override

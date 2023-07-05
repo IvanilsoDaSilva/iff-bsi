@@ -30,7 +30,7 @@ public class ListEntity<T> implements ListInterface<T> {
 	}
 	
 	@Override
-	public void add(T data) {
+	public boolean add(T data) {
 		this.length++;
 		if (this.first == null) {
 			this.first = new NoEntity<T>(data, null);
@@ -43,10 +43,11 @@ public class ListEntity<T> implements ListInterface<T> {
 				first.setNext(this.last);
 			}
 		}
+		return true;
 	}
 	
 	@Override
-	public void addFirst(T data) {
+	public boolean addFirst(T data) {
 		length++;
 		if (this.first == null) {
 			this.first = new NoEntity<T>(data, null);
@@ -55,15 +56,17 @@ public class ListEntity<T> implements ListInterface<T> {
 			NoEntity<T> aux = this.first;
 			this.first = new NoEntity<T>(data, aux);
 		}
+		return true;
 	}
 	
-	public void addToIndex(Integer index, T data) {
+	public boolean addToIndex(Integer index, T data) {
 		if (index>this.length || index<0) {
-			// Erro
+			return false;
 		} else if(index == 0) {
 			NoEntity<T> aux = this.first;
 			this.first = new NoEntity<T>(data, aux);
 			length++;
+			return true;
 		} else {
 			NoEntity<T> no = this.first;
 			for(int i = 0; i < index-1; i++) {
@@ -73,6 +76,7 @@ public class ListEntity<T> implements ListInterface<T> {
 			NoEntity<T> aux = no.getNext();
 			no.setNext(new NoEntity<T>(data, aux));
 			length++;
+			return true;
 		}
 	}
 
@@ -80,7 +84,6 @@ public class ListEntity<T> implements ListInterface<T> {
 	public T findToIndex(Integer index) {
 		if (index>this.length || index<0) {
 			return null;
-			// Erro
 		} else {
 			NoEntity<T> no = this.first;
 			for(int i = 0; i < index; i++) {
@@ -133,22 +136,23 @@ public class ListEntity<T> implements ListInterface<T> {
 	}
 	
 	@Override
-	public void updateToIndex(Integer index, T data) {
+	public boolean updateToIndex(Integer index, T data) {
 		if (index>this.length || index<1) {
-			// Erro
+			return false;
 		} else {
 			NoEntity<T> no = this.first;
 			for(int i = 0; i < index; i++) {
 				no = no.getNext();
 			}
 			no.setData(data);
+			return true;
 		}
 	}
 	
 	@Override
-	public void removeToIndex(Integer index) {
+	public boolean removeToIndex(Integer index) {
 		if (index>this.length || index<1) {
-			// Erro
+			return false;
 		} else {
 			this.length--;
 			NoEntity<T> no = this.first;
@@ -156,23 +160,25 @@ public class ListEntity<T> implements ListInterface<T> {
 				no = no.getNext();
 			}
 //			no.setNext(no.getNext().getNext());
+			return true;
 		}
 	}
 	
 	@Override
-	public void removeFirst() {
+	public boolean removeFirst() {
 		if (this.length == 0) {
-			// Erro
+			return false;
 		} else {
 			length--;
 			this.first = this.first.getNext();
+			return true;
 		}
 	}
 	
 	@Override
-	public void removeLast() {
+	public boolean removeLast() {
 		if (this.length == 0) {
-			// Erro
+			return false;
 		} else {
 			length--;
 			NoEntity<T> no = this.first;
@@ -181,6 +187,7 @@ public class ListEntity<T> implements ListInterface<T> {
 				no = no.getNext();
 			}
 			no.setNext(null);
+			return true;
 		}
 	}
 	

@@ -1,9 +1,9 @@
 package TP.excercicio03.interfaces;
 
-public interface StackInterface<T> {
+public interface QueueInterface<T> {
 	public int length();
-	public boolean push(T data);
-	public T pop();
+	public boolean enqueue(T data);
+	public T dequeue();
 	public T getTop();
 	public boolean isEmpity();
 }

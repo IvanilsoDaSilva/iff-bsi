@@ -6,15 +6,15 @@ import TP.excercicio02.entities.NoEntity;
 public interface ListInterface <T> {
 	public InteratorEntity<T> getInterator();
 	public Integer length();
-	public void add(T data);
-	public void addFirst(T data);
-	public void addToIndex( Integer index, T data);
+	public boolean add(T data);
+	public boolean addFirst(T data);
+	public boolean addToIndex( Integer index, T data);
 	public T findToIndex(Integer index);
 	public Integer findToData(T data);
 	public T findFirst();
 	public T findLast();
-	public void updateToIndex(Integer index, T data);
-	public void removeToIndex(Integer index);
-	public void removeFirst();
-	public void removeLast();
+	public boolean updateToIndex(Integer index, T data);
+	public boolean removeToIndex(Integer index);
+	public boolean removeFirst();
+	public boolean removeLast();
 }
