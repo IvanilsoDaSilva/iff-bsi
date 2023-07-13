@@ -151,16 +151,30 @@ public class ListEntity<T> implements ListInterface<T> {
 	
 	@Override
 	public boolean removeToIndex(Integer index) {
-		if (index>this.length || index<1) {
+		if (index>this.length-1 || index<0) {
 			return false;
+		} else if (index == 0) {
+			removeFirst();
+			return true;
 		} else {
 			this.length--;
 			NoEntity<T> no = this.first;
 			for(int i = 0; i < index-1; i++) {
 				no = no.getNext();
 			}
-//			no.setNext(no.getNext().getNext());
+			no.setNext(no.getNext().getNext());
 			return true;
+		}
+	}
+	
+	@Override
+	public boolean removeToData(T data) {
+		Integer index = findToData(data);
+		if (index != null) {
+			removeToIndex(index);
+			return true;
+		} else {
+			return false;
 		}
 	}
 	

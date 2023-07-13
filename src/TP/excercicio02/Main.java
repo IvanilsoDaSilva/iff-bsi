@@ -5,7 +5,7 @@ import TP.excercicio02.entities.InteratorEntity;
 
 public class Main {
 	public static void main(String[] args) {
-		ListEntity<Integer> lista = new ListEntity<Integer>(1);
+		ListEntity<Integer> lista = new ListEntity(1);
 		InteratorEntity<Integer> interador_lista = lista.getInterator();
 		
 		lista.add(2);
@@ -16,7 +16,7 @@ public class Main {
 		System.out.println("Objeto inicial: "+lista.toString());
 		
 		lista.addToIndex(6, 200);
-		System.out.println("Adicinar a posicao 0: "+lista.toString());
+		System.out.println("Adicinar a posicao 6: "+lista.toString());
 		
 		lista.addFirst(0);
 		System.out.println("Adicionar ao inicio: "+lista.toString());
@@ -24,8 +24,11 @@ public class Main {
 		lista.updateToIndex(1, 100);
 		System.out.println("Atualizar na posição: "+lista.toString());
 		
-//		lista.removeToIndex(1); // Não funciona
-//		System.out.println("Para String: "+lista.toString());
+		lista.removeToIndex(0); // Não funciona
+		System.out.println("Remover na posição 0: "+lista.toString());
+		
+		lista.removeToData(5);
+		System.out.println("Remover onde o dado é 5: "+lista.toString());
 		
 		lista.removeFirst();
 		System.out.println("Remover no inicio: "+lista.toString());
