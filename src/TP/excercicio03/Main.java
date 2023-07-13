@@ -1,6 +1,6 @@
 package TP.excercicio03;
 
-import TP.excercicio02.entities.InteratorEntity;
+import TP.excercicio03.entities.InteratorEntity;
 import TP.excercicio03.entities.QueueEntity_Encadeada;
 import TP.excercicio03.entities.QueueEntity_Sequencial;
 import TP.excercicio03.entities.StackEntity_Encadeada;
@@ -12,17 +12,18 @@ public class Main {
 		
 		// Pilha
 		// Formas de instanciar a pilha encadeada
-		StackEntity_Encadeada<Boolean> pilha = new StackEntity_Encadeada(true);
-		System.out.println("Adicionar \"false\": "+pilha.push(false));
+//		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada("Primeiro");
+//		System.out.println("Adicionar \"false\": "+pilha.push("Segundo"));
+//		
+		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada();
+		System.out.println("Para string: "+pilha.toString());
+		System.out.println("Adicionar \"primeiro\": "+pilha.push("primeiro"));
+		System.out.println("Adicionar \"segundo\": "+pilha.push("segundo"));
 		
-//		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada();
-//		System.out.println("Para string: "+pilha.toString());
-//		System.out.println("Adicionar \"primeiro\": "+pilha.push("primeiro"));
-//		System.out.println("Adicionar \"segundo\": "+pilha.push("segundo"));
-		
-//		InteratorEntity<String> interator = pilha.getInterator();
-//		System.out.print("Varrer lista via interador: ");
-//		while (!interator.isLast()) {System.out.print(interator.getNextData()+",");}
+		// Interador
+		InteratorEntity<String> interator = pilha.getInterator();
+		System.out.print("Varrer lista via interador: ");
+		while (!interator.isLast()) {System.out.print(interator.getNextData()+",");} System.out.println();
 		
 		// Formas de instanciar a pilha sequencial
 //		StackEntity_Sequencial<Integer> pilha = new StackEntity_Sequencial(new Integer[] {1, 2, 3});
@@ -36,37 +37,38 @@ public class Main {
 //		System.out.println("Adicionar \"terceiro\": "+pilha.push("terceiro"));
 		
 		// Chamada dos metodos da pilha encadeada e sequencial
-		System.out.println("Para string: "+pilha.toString());
-		System.out.println("É vazía? "+pilha.isEmpity());
-		System.out.println("Ver topo: "+pilha.getTop());
-		System.out.println("Desempilhar: "+pilha.pop());
-		System.out.println("Para string: "+pilha.toString());
-		System.out.println("Desempilhar: "+pilha.pop());
-		System.out.println("Desempilhar: "+pilha.pop());
-		System.out.println("É vazía? "+pilha.isEmpity());
-		System.out.println("Para string: "+pilha.toString());
-		System.out.println("Desempilhar: "+pilha.pop());
-		System.out.println("É vazía? "+pilha.isEmpity());
-		System.out.println("Para string: "+pilha.toString());
-		System.out.println("Desempilhar: "+pilha.pop());
-		System.out.println("É vazía? "+pilha.isEmpity());
-		System.out.println("Para string: "+pilha.toString());
+//		System.out.println("Para string: "+pilha.toString());
+//		System.out.println("É vazía? "+pilha.isEmpity());
+//		System.out.println("Ver topo: "+pilha.getTop());
+//		System.out.println("Desempilhar: "+pilha.pop());
+//		System.out.println("Para string: "+pilha.toString());
+//		System.out.println("Desempilhar: "+pilha.pop());
+//		System.out.println("Desempilhar: "+pilha.pop());
+//		System.out.println("É vazía? "+pilha.isEmpity());
+//		System.out.println("Para string: "+pilha.toString());
+//		System.out.println("Desempilhar: "+pilha.pop());
+//		System.out.println("É vazía? "+pilha.isEmpity());
+//		System.out.println("Para string: "+pilha.toString());
+//		System.out.println("Desempilhar: "+pilha.pop());
+//		System.out.println("É vazía? "+pilha.isEmpity());
+//		System.out.println("Para string: "+pilha.toString());
 		
 		// Fila
 		// Formas de instanciar a fila encadeada
-//		QueueEntity_Encadeada<Boolean> fila = new QueueEntity_Encadeada(true);
+//		QueueEntity_Encadeada<Integer> fila = new QueueEntity_Encadeada(1);
 //		System.out.println("Para string: "+fila.toString());
-//		fila.enqueue(false);
+//		fila.enqueue(2);
 		
-//		QueueEntity_Encadeada<String> fila = new QueueEntity_Encadeada();
+//		QueueEntity_Encadeada<Integer> fila = new QueueEntity_Encadeada();
 //		System.out.println("Para string: "+fila.toString());
-//		System.out.println("Adicionar \"primeiro\": "+fila.enqueue("primeiro"));
-//		System.out.println("Adicionar \"segundo\": "+fila.enqueue("segundo"));
-//		System.out.println("Adicionar \"terceiro\": "+fila.enqueue("terceiro"));
+//		System.out.println("Adicionar \"primeiro\": "+fila.enqueue(1));
+//		System.out.println("Adicionar \"segundo\": "+fila.enqueue(2));
+//		System.out.println("Adicionar \"terceiro\": "+fila.enqueue(3));
 		
-//		InteratorEntity<String> interator = pilha.getInterator();
+		// Interador
+//		InteratorEntity<Integer> interator = fila.getInterator();
 //		System.out.print("Varrer lista via interador: ");
-//		while (!interator.isLast()) {System.out.print(interator.getNextData()+",");}
+//		while (!interator.isLast()) {System.out.print(interator.getNextData()+",");} System.out.println();
 		
 		
 		// Formas de instanciar a fila sequencial
