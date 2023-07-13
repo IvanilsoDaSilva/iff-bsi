@@ -15,6 +15,7 @@ public interface ListInterface <T> {
 	public T findLast();
 	public boolean updateToIndex(Integer index, T data);
 	public boolean removeToIndex(Integer index);
+	public boolean removeToData(T data);
 	public boolean removeFirst();
 	public boolean removeLast();
 }
