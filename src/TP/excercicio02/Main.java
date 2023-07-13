@@ -5,21 +5,26 @@ import TP.excercicio02.entities.InteratorEntity;
 
 public class Main {
 	public static void main(String[] args) {
-		ListEntity<Integer> lista = new ListEntity(1);
-		InteratorEntity<Integer> interador_lista = lista.getInterator();
+		ListEntity<Integer> lista = new ListEntity();
 		
+		System.out.println("Objeto inicial: "+lista.toString());
+		System.out.println("É vazia? "+lista.isEmpity());
+		
+		lista.add(1);
 		lista.add(2);
 		lista.add(3);
 		lista.add(4);
 		lista.add(5);
 		lista.add(6);
-		System.out.println("Objeto inicial: "+lista.toString());
+		System.out.println("Objeto depois da inserção: "+lista.toString());
 		
-		lista.addToIndex(6, 200);
-		System.out.println("Adicinar a posicao 6: "+lista.toString());
+		System.out.println("É vazia? "+lista.isEmpity());
+		
+		lista.addToIndex(5, 200);
+		System.out.println("Adicinar 200 na posicao 5: "+lista.toString());
 		
 		lista.addFirst(0);
-		System.out.println("Adicionar ao inicio: "+lista.toString());
+		System.out.println("Adicionar 0 ao inicio: "+lista.toString());
 		
 		lista.updateToIndex(1, 100);
 		System.out.println("Atualizar na posição: "+lista.toString());
@@ -42,6 +47,8 @@ public class Main {
 		System.out.println("Segundo elemento: "+lista.findToIndex(1));
 		System.out.println("Para String: "+lista.toString());
 		System.out.println("Posição do elemento 3: "+lista.findToData(3));
+		
+		InteratorEntity<Integer> interador_lista = lista.getInterator();
 		System.out.print("Varrer lista via interador: ");
 		while (!interador_lista.isLast()) {System.out.print(interador_lista.getNextData()+",");}
 	}

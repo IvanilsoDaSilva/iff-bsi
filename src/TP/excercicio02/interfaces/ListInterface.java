@@ -8,7 +8,7 @@ public interface ListInterface <T> {
 	public Integer length();
 	public boolean add(T data);
 	public boolean addFirst(T data);
-	public boolean addToIndex( Integer index, T data);
+	public boolean addToIndex(Integer index, T data);
 	public T findToIndex(Integer index);
 	public Integer findToData(T data);
 	public T findFirst();
@@ -18,4 +18,5 @@ public interface ListInterface <T> {
 	public boolean removeToData(T data);
 	public boolean removeFirst();
 	public boolean removeLast();
+	public boolean isEmpity();
 }
