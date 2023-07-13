@@ -206,6 +206,15 @@ public class ListEntity<T> implements ListInterface<T> {
 	}
 	
 	@Override
+	public boolean isEmpity() {
+		if (this.length == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
 	public String toString() {
 		String string;
 		NoEntity<T> no = this.first;
