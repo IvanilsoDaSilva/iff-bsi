@@ -1,6 +1,5 @@
 package TP.excercicio03.entities;
 
-import TP.excercicio03.entities.NoEntity;
 import TP.excercicio03.interfaces.StackInterface;
 
 public class StackEntity_Sequencial<T> implements StackInterface<T> {
@@ -10,9 +9,22 @@ public class StackEntity_Sequencial<T> implements StackInterface<T> {
 	private int length = 0;
 	
 	// Methods - Construct
-	public StackEntity_Sequencial() {
+	/**
+	 * Create an empty stack
+	 * 
+	 * @param length of stack
+	 */
+	public StackEntity_Sequencial(int length) {
+		this.arr = new Object[length];
+		this.length = length;
 	}
 	
+	/**
+	 * Creates a stack filling it with a single data
+	 * 
+	 * @param data
+	 * @param length of stack
+	 */
 	public StackEntity_Sequencial(T data, int length) {
 		this.arr = new Object[length];
 		this.length = this.arr.length;
@@ -20,6 +32,11 @@ public class StackEntity_Sequencial<T> implements StackInterface<T> {
 		this.arr[last] = data;
 	}
 	
+	/**
+	 * Create a stack from an array
+	 * 
+	 * @param array
+	 */
 	public StackEntity_Sequencial(Object[] arr) {
 		this.arr = arr;
 		this.length = arr.length;

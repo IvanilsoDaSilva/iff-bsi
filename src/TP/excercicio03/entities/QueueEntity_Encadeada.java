@@ -1,6 +1,5 @@
 package TP.excercicio03.entities;
 
-import TP.excercicio03.entities.NoEntity;
 import TP.excercicio03.interfaces.QueueInterface;
 
 public class QueueEntity_Encadeada<T> implements QueueInterface<T> {
@@ -9,15 +8,27 @@ public class QueueEntity_Encadeada<T> implements QueueInterface<T> {
 	private int length = 0;
 	
 	// Methods - Construct
+	/**
+	 * Create an empty queue
+	 */
 	public QueueEntity_Encadeada() {
 	}
 	
+	/**
+	 * Creates a stack filling it with a single data
+	 * 
+	 * @param data
+	 */
 	public QueueEntity_Encadeada(T data) {
 		this.first = new NoEntity<T>(data, null);
 		this.length++;
 	}
 	
 	// Methods - Others
+	public InteratorEntity<T> getInterator() {
+		return new InteratorEntity<T>(this.first);
+	}
+	
 	@Override
 	public int length() {
 		return this.length;
