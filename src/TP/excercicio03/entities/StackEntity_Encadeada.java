@@ -1,6 +1,5 @@
 package TP.excercicio03.entities;
 
-import TP.excercicio03.entities.NoEntity;
 import TP.excercicio03.interfaces.StackInterface;
 
 public class StackEntity_Encadeada<T> implements StackInterface<T> {
@@ -9,14 +8,26 @@ public class StackEntity_Encadeada<T> implements StackInterface<T> {
 	private int length = 0;
 	
 	// Methods - Construct
+	/**
+	 * Create an empty stack
+	 */
 	public StackEntity_Encadeada() {
 	}
 	
+	/**
+	 * Creates a stack filling it with a single data
+	 * 
+	 * @param data
+	 */
 	public StackEntity_Encadeada(T data) {
 		this.first = new NoEntity<T>(data, null);
 	}
 	
 	// Methods - Others
+	public InteratorEntity<T> getInterator() {
+		return new InteratorEntity<T>(this.first);
+	}
+	
 	@Override
 	public int length() {
 		return this.length;

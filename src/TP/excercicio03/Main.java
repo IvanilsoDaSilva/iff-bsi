@@ -1,26 +1,34 @@
 package TP.excercicio03;
 
+import TP.excercicio02.entities.InteratorEntity;
 import TP.excercicio03.entities.QueueEntity_Encadeada;
 import TP.excercicio03.entities.QueueEntity_Sequencial;
 import TP.excercicio03.entities.StackEntity_Encadeada;
 import TP.excercicio03.entities.StackEntity_Sequencial;
 
 public class Main {
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	public static void main(String[] args) {
+		
 		// Pilha
 		// Formas de instanciar a pilha encadeada
-//		StackEntity_Encadeada<Boolean> pilha = new StackEntity_Encadeada(true);
-//		System.out.println("Adicionar \"false\": "+pilha.push(false));
+		StackEntity_Encadeada<Boolean> pilha = new StackEntity_Encadeada(true);
+		System.out.println("Adicionar \"false\": "+pilha.push(false));
 		
 //		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada();
 //		System.out.println("Para string: "+pilha.toString());
 //		System.out.println("Adicionar \"primeiro\": "+pilha.push("primeiro"));
 //		System.out.println("Adicionar \"segundo\": "+pilha.push("segundo"));
 		
+//		InteratorEntity<String> interator = pilha.getInterator();
+//		System.out.print("Varrer lista via interador: ");
+//		while (!interator.isLast()) {System.out.print(interator.getNextData()+",");}
+		
 		// Formas de instanciar a pilha sequencial
-		StackEntity_Sequencial<Integer> pilha = new StackEntity_Sequencial(new Integer[] {1, 2, 3});
-		System.out.println("Para string: "+pilha.toString());
-		System.out.println("Adicionar \"segundo\": "+pilha.push(4));
+//		StackEntity_Sequencial<Integer> pilha = new StackEntity_Sequencial(new Integer[] {1, 2, 3});
+//		System.out.println("Para string: "+pilha.toString());
+//		System.out.println("Tamanho: "+pilha.length());
+//		System.out.println("Adicionar 4: "+pilha.push(4));
 		
 //		StackEntity_Sequencial<String> pilha = new StackEntity_Sequencial("primeiro", 10);
 //		System.out.println("Para string: "+pilha.toString());
@@ -55,6 +63,10 @@ public class Main {
 //		System.out.println("Adicionar \"primeiro\": "+fila.enqueue("primeiro"));
 //		System.out.println("Adicionar \"segundo\": "+fila.enqueue("segundo"));
 //		System.out.println("Adicionar \"terceiro\": "+fila.enqueue("terceiro"));
+		
+//		InteratorEntity<String> interator = pilha.getInterator();
+//		System.out.print("Varrer lista via interador: ");
+//		while (!interator.isLast()) {System.out.print(interator.getNextData()+",");}
 		
 		
 		// Formas de instanciar a fila sequencial

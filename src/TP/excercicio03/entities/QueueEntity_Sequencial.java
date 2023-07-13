@@ -9,11 +9,22 @@ public class QueueEntity_Sequencial<T> implements QueueInterface<T> {
 	private int length = 0;
 	
 	// Methods - Construct
+	/**
+	 * Create an empty queue
+	 * 
+	 * @param length of queue
+	 */
 	public QueueEntity_Sequencial(int length) {
 		this.arr = new Object[length];
 		this.length = length;
 	}
 	
+	/**
+	 * Creates a stack filling it with a single data
+	 * 
+	 * @param data
+	 * @param length of queue
+	 */
 	public QueueEntity_Sequencial(T data, int length) {
 		this.arr = new Object[length];
 		this.length = length;
@@ -21,6 +32,11 @@ public class QueueEntity_Sequencial<T> implements QueueInterface<T> {
 		this.last++;
 	}
 	
+	/**
+	 * Create a queue from an array
+	 * 
+	 * @param array
+	 */
 	public QueueEntity_Sequencial(Object[] arr) {
 		this.arr = new Object[arr.length];
 		this.length = this.arr.length;
@@ -34,6 +50,12 @@ public class QueueEntity_Sequencial<T> implements QueueInterface<T> {
 		this.last = arr.length-1;
 	}
 	
+	/**
+	 * creates a queue based on a size and fills it from an array
+	 * 
+	 * @param array
+	 * @param length of queue
+	 */
 	public QueueEntity_Sequencial(Object[] arr, int length) {
 		if (length >= arr.length) {
 			this.arr = new Object[length];
