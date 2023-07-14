@@ -227,4 +227,29 @@ public class ListEntity<T> implements ListInterface<T> {
 		string = string+"]";
 		return string;
 	}
+
+	@Override
+	public ListEntity<T> bubbleSort() {
+		NoEntity<T> no = first;
+		while(no.getNext() != null) {
+			if ((int) no.getData() > (int) no.getNext().getData()) {
+				
+			}
+			System.err.println(toString());
+			no = no.getNext();
+		}
+		return null;
+	}
+
+	@Override
+	public ListEntity<T> selectSort() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ListEntity<T> InsertSort() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
