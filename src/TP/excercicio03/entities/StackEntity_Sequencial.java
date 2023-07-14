@@ -69,14 +69,6 @@ public class StackEntity_Sequencial<T> implements StackInterface<T> {
 			return null;
 		}
 	}
-	
-	public boolean isEmpity() {
-		if (this.last == -1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 
 	@Override
 	public boolean push(T data) {
@@ -86,6 +78,26 @@ public class StackEntity_Sequencial<T> implements StackInterface<T> {
 			last++;
 			this.arr[last] = data;
 			return true;
+		}
+	}
+	
+	@Override
+	public boolean isEmpity() {
+		if (this.last == -1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean isEquals(StackEntity_Encadeada stack) {
+		if (stack.toString().equals(toString())) {
+			System.out.println(stack.toString());
+			System.out.println(toString());
+			return true;
+		} else {
+			return false;
 		}
 	}
 	

@@ -2,6 +2,7 @@ package TP.excercicio03.entities;
 
 import TP.excercicio03.interfaces.StackInterface;
 
+@SuppressWarnings("rawtypes")
 public class StackEntity_Encadeada<T> implements StackInterface<T> {
 	// Fields
 	private NoEntity<T> first = null;
@@ -52,7 +53,15 @@ public class StackEntity_Encadeada<T> implements StackInterface<T> {
 			return null;
 		}
 	}
+
+	@Override
+	public boolean push(T data) {
+		NoEntity<T> aux = this.first;
+		this.first = new NoEntity<T>(data, aux);
+		return true;
+	}
 	
+	@Override
 	public boolean isEmpity() {
 		if (this.length == 0) {
 			return true;
@@ -60,12 +69,14 @@ public class StackEntity_Encadeada<T> implements StackInterface<T> {
 			return false;
 		}
 	}
-
+	
 	@Override
-	public boolean push(T data) {
-		NoEntity<T> aux = this.first;
-		this.first = new NoEntity<T>(data, aux);
-		return true;
+	public boolean isEquals(StackEntity_Encadeada stack) {
+		if (stack.toString().equals(toString())) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	@Override

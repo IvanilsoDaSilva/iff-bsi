@@ -12,13 +12,12 @@ public class Main {
 		
 		// Pilha
 		// Formas de instanciar a pilha encadeada
-//		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada("Primeiro");
-//		System.out.println("Adicionar \"false\": "+pilha.push("Segundo"));
+		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada("Primeiro");
+		System.out.println("Adicionar \"false\": "+pilha.push("Segundo"));
 //		
-		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada();
-		System.out.println("Para string: "+pilha.toString());
-		System.out.println("Adicionar \"primeiro\": "+pilha.push("primeiro"));
-		System.out.println("Adicionar \"segundo\": "+pilha.push("segundo"));
+//		StackEntity_Encadeada<String> pilha = new StackEntity_Encadeada();
+//		System.out.println("Adicionar \"primeiro\": "+pilha.push("primeiro"));
+//		System.out.println("Adicionar \"segundo\": "+pilha.push("segundo"));
 		
 		// Interador
 		InteratorEntity<String> interator = pilha.getInterator();
@@ -37,21 +36,23 @@ public class Main {
 //		System.out.println("Adicionar \"terceiro\": "+pilha.push("terceiro"));
 		
 		// Chamada dos metodos da pilha encadeada e sequencial
-//		System.out.println("Para string: "+pilha.toString());
-//		System.out.println("É vazía? "+pilha.isEmpity());
-//		System.out.println("Ver topo: "+pilha.getTop());
-//		System.out.println("Desempilhar: "+pilha.pop());
-//		System.out.println("Para string: "+pilha.toString());
-//		System.out.println("Desempilhar: "+pilha.pop());
-//		System.out.println("Desempilhar: "+pilha.pop());
-//		System.out.println("É vazía? "+pilha.isEmpity());
-//		System.out.println("Para string: "+pilha.toString());
-//		System.out.println("Desempilhar: "+pilha.pop());
-//		System.out.println("É vazía? "+pilha.isEmpity());
-//		System.out.println("Para string: "+pilha.toString());
-//		System.out.println("Desempilhar: "+pilha.pop());
-//		System.out.println("É vazía? "+pilha.isEmpity());
-//		System.out.println("Para string: "+pilha.toString());
+		System.out.println("Para string: "+pilha.toString());
+		System.out.println("É vazía? "+pilha.isEmpity());
+		System.out.println("Ver topo: "+pilha.getTop());
+		System.out.println("Desempilhar: "+pilha.pop());
+		System.out.println("Para string: "+pilha.toString());
+		System.out.println("Desempilhar: "+pilha.pop());
+		System.out.println("Desempilhar: "+pilha.pop());
+		System.out.println("É vazía? "+pilha.isEmpity());
+		System.out.println("Para string: "+pilha.toString());
+		System.out.println("Desempilhar: "+pilha.pop());
+		System.out.println("É vazía? "+pilha.isEmpity());
+		System.out.println("Para string: "+pilha.toString());
+		System.out.println("Desempilhar: "+pilha.pop());
+		System.out.println("É vazía? "+pilha.isEmpity());
+		System.out.println("Para string: "+pilha.toString());
+		System.out.println("É igual à "+new StackEntity_Encadeada(1).toString()+": "+pilha.isEquals(new StackEntity_Encadeada(1)));
+		System.out.println("É igual à "+new StackEntity_Encadeada().toString()+": "+pilha.isEquals(new StackEntity_Encadeada()));
 		
 		// Fila
 		// Formas de instanciar a fila encadeada

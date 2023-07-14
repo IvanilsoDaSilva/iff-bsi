@@ -1,5 +1,7 @@
 package TP.excercicio03.interfaces;
 
+import TP.excercicio03.entities.StackEntity_Encadeada;
+
 public interface StackInterface<T> {
 	/**
 	 * Informs the length of the list
@@ -38,4 +40,12 @@ public interface StackInterface<T> {
 	 * @return if the array is empty
 	 */
 	public boolean isEmpity();
+	
+	/**
+	 * Checks if two batteries are equal
+	 * 
+	 * @param stack
+	 * @return if stack is equals to current stack
+	 */
+	public boolean isEquals(StackEntity_Encadeada stack);
 }
