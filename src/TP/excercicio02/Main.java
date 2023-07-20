@@ -26,7 +26,9 @@ public class Main {
 //		lista.add(6);
 		
 		System.out.println("Objeto depois da inserção: "+lista.toString());
-		System.out.println("Objeto final: "+lista.toString());
+		
+//		System.out.println("Objeto depois da inserção: "+lista.toString());
+//		System.out.println("Objeto final: "+lista.toString());
 		
 //		System.out.println("É vazia? "+lista.isEmpity());
 //		
@@ -42,8 +44,8 @@ public class Main {
 //		lista.removeToIndex(0); // Não funciona
 //		System.out.println("Remover na posição 0: "+lista.toString());
 //		
-//		lista.removeToData(5);
-//		System.out.println("Remover onde o dado é 5: "+lista.toString());
+		lista.removeToData(5);
+		System.out.println("Remover onde o dado é 5: "+lista.toString());
 //		
 //		lista.removeFirst();
 //		System.out.println("Remover no inicio: "+lista.toString());
@@ -61,7 +63,5 @@ public class Main {
 //		InteratorEntity<Integer> interador_lista = lista.getInterator();
 //		System.out.print("Varrer lista via interador: ");
 //		while (!interador_lista.isLast()) {System.out.print(interador_lista.getNextData()+",");}
-		
-		lista.bubbleSort();
 	}
 }

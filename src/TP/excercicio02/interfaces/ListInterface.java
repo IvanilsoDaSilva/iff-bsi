@@ -1,8 +1,6 @@
 package TP.excercicio02.interfaces;
 
 import TP.excercicio02.entities.InteratorEntity;
-import TP.excercicio02.entities.ListEntity;
-import TP.excercicio02.entities.NoEntity;
 
 public interface ListInterface <T> {
 	public InteratorEntity<T> getInterator();
@@ -20,7 +18,4 @@ public interface ListInterface <T> {
 	public boolean removeFirst();
 	public boolean removeLast();
 	public boolean isEmpity();
-	public ListEntity<T> bubbleSort();
-	public ListEntity<T> selectSort();
-	public ListEntity<T> InsertSort();
 }

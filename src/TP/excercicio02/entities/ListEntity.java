@@ -216,40 +216,15 @@ public class ListEntity<T> implements ListInterface<T> {
 	
 	@Override
 	public String toString() {
-		String string;
+		String string = "[";
 		NoEntity<T> no = this.first;
 		
-		string = "[";
-		for(int i = 0; i < this.length; i++) {
-			string = string+no.getData().toString()+",";
+		while (no != null) {
+			string = string+no.getData()+",";
+			
 			no = no.getNext();
 		}
-		string = string+"]";
-		return string;
-	}
-
-	@Override
-	public ListEntity<T> bubbleSort() {
-		NoEntity<T> no = first;
-		while(no.getNext() != null) {
-			if ((int) no.getData() > (int) no.getNext().getData()) {
-				
-			}
-			System.err.println(toString());
-			no = no.getNext();
-		}
-		return null;
-	}
-
-	@Override
-	public ListEntity<T> selectSort() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ListEntity<T> InsertSort() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return string+"]";
 	}
 }
