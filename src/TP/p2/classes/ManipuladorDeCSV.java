@@ -5,19 +5,18 @@ import java.util.ArrayList;
 
 public class ManipuladorDeCSV {
 	private String divisor, caminhoDeImportacao, caminhoDeExportacao, cabecalho[];
-	private File arquivoImportacao, arquivoExportacao;
 	
-	public ManipuladorDeCSV(String caminhoDeImportacao, String caminhoDeExportacao, String divisor) {
+	public ManipuladorDeCSV(String caminhoDeImportacao, String caminhoDeExportacao, String divisor, String[] cabecalho) {
 		this.divisor = divisor;
 		this.caminhoDeImportacao = caminhoDeImportacao;
 		this.caminhoDeExportacao = caminhoDeExportacao;
-		this.arquivoImportacao = new File(caminhoDeImportacao);
-		this.arquivoExportacao = new File(caminhoDeExportacao);
+		this.cabecalho = cabecalho;
 	}
 	
 	// Queria fazer uma chamada recursiva (Onde acabaria quando a linha lida fosse null), porem são muitas chamadas...
 	public ArrayList<Musica> importacao() throws IOException{
-		BufferedReader arquivoBuferizado = new BufferedReader(new FileReader(this.arquivoImportacao));
+		File arquivoImportacao = new File(this.caminhoDeImportacao);
+		BufferedReader arquivoBuferizado = new BufferedReader(new FileReader(arquivoImportacao));
 		ArrayList<Musica> musicas = new ArrayList<Musica>();
 		String linha = "";
 		
@@ -36,7 +35,7 @@ public class ManipuladorDeCSV {
 			catch (Exception e){musica.setDuracao(0);}
 			try {musica.setVisualizacoes(Float.parseFloat(linha.split(this.divisor)[14]));}
 			catch (Exception e){musica.setVisualizacoes(0);}
-			try {musica.setCurtidas(Integer.parseInt(linha.split(this.divisor)[16]));}
+			try {musica.setCurtidas(Float.parseFloat(linha.split(this.divisor)[16]));}
 			catch (Exception e){musica.setCurtidas(0);}
 			musicas.add(musica);
 			
@@ -47,14 +46,15 @@ public class ManipuladorDeCSV {
 	}
 	
 	public void exportacao (ArrayList<Musica> dados) throws IOException{
-		this.arquivoExportacao.createNewFile();
-		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(this.arquivoExportacao));
+		File arquivoExportacao = new File(this.caminhoDeExportacao);
+		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(arquivoExportacao));
 		
 		for(Musica dado : dados) {
 			arquivoBuferizado.write(
 				dado.getArtista()+";"+dado.getTrilha()+";"+
 				dado.getDancabilidade()+";"+dado.getEnergia()+";"+
-				dado.getDuracao()+";"+dado.getVisualizacoes()+";"+dado.getCurtidas()+"\n");
+				dado.getDuracao()+";"+dado.getVisualizacoes()+";"+dado.getCurtidas()+"\n"
+			);
 		}
 		
 		arquivoBuferizado.flush();
