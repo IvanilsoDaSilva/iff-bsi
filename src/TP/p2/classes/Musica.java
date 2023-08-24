@@ -2,9 +2,10 @@ package TP.p2.classes;
 
 public class Musica {
 	private String artista, trilha;
-	private double dancabilidade, energia, duracao, visualizacoes, curtidas;
+	private float dancabilidade, energia, duracao, visualizacoes;
+	private int curtidas;
 	
-	public Musica(String artista, String trilha, double dancabilidade, double energia, double duracao, double visualizacoes, double curtidas) {
+	public Musica(String artista, String trilha, float dancabilidade, float energia, float duracao, float visualizacoes, int curtidas) {
 		this.artista = artista;
 		this.trilha = trilha;
 		this.dancabilidade = dancabilidade;
@@ -37,43 +38,43 @@ public class Musica {
 		this.trilha = trilha;
 	}
 
-	public double getDancabilidade() {
+	public float getDancabilidade() {
 		return dancabilidade;
 	}
 
-	public void setDancabilidade(double dancabilidade) {
+	public void setDancabilidade(float dancabilidade) {
 		this.dancabilidade = dancabilidade;
 	}
 
-	public double getEnergia() {
+	public float getEnergia() {
 		return energia;
 	}
 
-	public void setEnergia(double energia) {
+	public void setEnergia(float energia) {
 		this.energia = energia;
 	}
 
-	public double getDuracao() {
+	public float getDuracao() {
 		return duracao;
 	}
 
-	public void setDuracao(double duracao) {
+	public void setDuracao(float duracao) {
 		this.duracao = duracao;
 	}
 
-	public double getVisualizacoes() {
+	public float getVisualizacoes() {
 		return visualizacoes;
 	}
 
-	public void setVisualizacoes(double visualizacoes) {
+	public void setVisualizacoes(float visualizacoes) {
 		this.visualizacoes = visualizacoes;
 	}
 
-	public double getCurtidas() {
+	public int getCurtidas() {
 		return curtidas;
 	}
 
-	public void setCurtidas(double like) {
+	public void setCurtidas(int like) {
 		this.curtidas = like;
 	}
 }
