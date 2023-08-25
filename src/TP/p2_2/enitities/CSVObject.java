@@ -8,7 +8,7 @@ public class CSVObject {
 	private String divider = ";", header[] = null;
 	private File file = null;
 	private List<Music> musics = null;
-	
+
 	// Methods - Constructs
 	public CSVObject() {
 	}
@@ -38,11 +38,50 @@ public class CSVObject {
 	}
 	
 	// Methods - Others
-	public void importFrom(File file, String divider, String[] header) {
+	public void importCSVFrom(String divider, String[] columns) throws FileNotFoundException, IOException {
+		BufferedReader filerBufferedReader = new BufferedReader(new FileReader(this.file));
+		String header[] = filerBufferedReader.readLine().split(divider);
+		String linha = filerBufferedReader.readLine();
+		int[] columnsIndexs = new int[columns.length];
+		String JSONtext = ""; int cont=0;//teste
 		
+		for(int i=0;i<columns.length;i++) {
+			columnsIndexs[i] = Arrays.asList(header).indexOf(columns[i]);
+		}
+		JSONtext=JSONtext+"[";
+		while (linha != null) {
+			JSONtext=JSONtext+"{";
+//			Music music = new Music();
+			for(int i : columnsIndexs) {
+				if (i<0) {
+//					System.out.println("|");
+//					System.out.print("\""+header[i]+":\"\"");
+				} else {
+//					System.out.print(linha.split(divider)[i]+"|");
+					JSONtext=JSONtext+"\""+header[i]+"\":\""+linha.split(divider)[i]+"\",";
+				}
+			}
+			JSONtext=JSONtext+"},\n";
+			System.out.println(cont++);
+			linha = filerBufferedReader.readLine();
+		}
+		JSONtext=JSONtext+"]";
+		
+//		while (linha != null) {
+//			Music music = new Music();
+//			
+//			// Tratamento da linha
+//			
+//			
+//			this.musics.add(music);
+//		}
+		
+		System.out.println("teste");
+		System.out.println(JSONtext);
+		filerBufferedReader.close();
 	}
 	
-	public void exportTo(File file) {
+	public void exportCSVTo(String path) {
 		
 	}
 }

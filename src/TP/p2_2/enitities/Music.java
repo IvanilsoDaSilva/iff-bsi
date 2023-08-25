@@ -1,7 +1,7 @@
 package TP.p2_2.enitities;
 
 public class Music {
-	private String artist, track;
+	private Object artist, track;
 	
 	public Music() {
 	}
@@ -9,16 +9,16 @@ public class Music {
 		this.artist = artist;
 		this.track = track;
 	}
-	public String getArtist() {
+	public Object getArtist() {
 		return artist;
 	}
-	public void setArtist(String artist) {
+	public void setArtist(Object artist) {
 		this.artist = artist;
 	}
-	public String getTrack() {
+	public Object getTrack() {
 		return track;
 	}
-	public void setTrack(String track) {
+	public void setTrack(Object track) {
 		this.track = track;
 	}
 }
