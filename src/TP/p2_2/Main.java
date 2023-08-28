@@ -1,6 +1,8 @@
 package TP.p2_2;
 
 import java.io.*;
+import java.util.List;
+
 import TP.p2_2.enitities.*;
 
 public class Main {
@@ -13,11 +15,12 @@ public class Main {
 		
 		// ou
 		
-		CSVObject csv = new CSVObject();
-		csv.setFile(new File(System.getProperty("user.dir")+"/src/TP/p2_2/input/input2.csv"));
-		csv.importCSVFrom(
-			";", new String[] {"Artist", "Track"}
-		);
-//		csv.exportCSVTo("");
+		File arquivo = new File(System.getProperty("user.dir")+"/src/TP/p2_2/input/input2.csv");
+		String divisor = ";";
+		String cabecalho[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
+		
+		CSVObject csv = new CSVObject(arquivo, divisor, cabecalho);
+		List<Music> musicas = csv.save();
+		csv.exportCSVTo(System.getProperty("user.dir")+"/src/TP/p2_2/output/output.csv");
 	}
 }
