@@ -58,6 +58,7 @@ public class CSVObject {
 		}
 		
 		// Converte linhas de um arquivo CSV para objetos de uma lista
+		System.out.println("Saving...");
 		while (line != null) {
 			Music music = new Music();
 			for(int i : this.headerIndex) {
@@ -108,10 +109,10 @@ public class CSVObject {
 							  case 15: // Channel
 								  break;
 							  case 16: // Views
-								  music.setViews(Integer.parseInt(data.toString()));
+								  music.setViews(Double.parseDouble(data.toString()));
 								  break;
 							  case 17: // Likes
-								  music.setLikes(Integer.parseInt(data.toString()));
+								  music.setLikes(Double.parseDouble(data.toString()));
 								  break;
 							  default:
 								  break;
@@ -124,8 +125,8 @@ public class CSVObject {
 			this.musics.add(music);
 			line = filerBufferedReader.readLine();
 		}
+		System.out.println("Successfully saved!");
 		filerBufferedReader.close();
-		
 		return this.musics;
 	}
 	
@@ -140,6 +141,7 @@ public class CSVObject {
 		line = line.substring(0, line.length()-1)+"\n"; // Pega o cabecalho reovendo o ultimo divisor
 		
 		// Converte os objetos musica em uma lista para linhas de um arquivo CSV
+		System.out.println("Exporting...");
 		for(Music music : this.musics) {
 			for(int i : this.headerIndex) {
 				// Melhorar
@@ -195,6 +197,7 @@ public class CSVObject {
 			}
 			line = line.substring(0, line.length()-1)+"\n";
 		}
+		System.out.println("Exporting successfully!");
 		
 		arquivoBuferizado.write(line);
 		arquivoBuferizado.close();

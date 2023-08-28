@@ -3,8 +3,7 @@ package TP.p2_2.enitities;
 public class Music {
 	// Fields
 	private String artist, track, album, albumType, title, channel, mostPlayedon;
-	private double danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, time, durationMin, energyLiveness;
-	private int views, likes, comments, stream;
+	private double danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, time, durationMin, energyLiveness, views, likes, comments, stream;
 	private boolean licensed, official;
 	
 	// Methods - Constructs
@@ -13,7 +12,7 @@ public class Music {
 	public Music(String artist, String track, String album, String albumType, String title, String channel,
 			String mostPlayedon, double danceability, double energy, double loudness, double speechiness,
 			double acousticness, double instrumentalness, double liveness, double valence, double time,
-			double durationMin, double energyLiveness, int views, int likes, int comments, int stream, boolean licensed,
+			double durationMin, double energyLiveness, double views, double likes, double comments, double stream, boolean licensed,
 			boolean official) {
 		super();
 		this.artist = artist;
@@ -151,28 +150,28 @@ public class Music {
 	public void setEnergyLiveness(double energyLiveness) {
 		this.energyLiveness = energyLiveness;
 	}
-	public int getViews() {
+	public double getViews() {
 		return views;
 	}
-	public void setViews(int views) {
+	public void setViews(double views) {
 		this.views = views;
 	}
-	public int getLikes() {
+	public double getLikes() {
 		return likes;
 	}
-	public void setLikes(int likes) {
+	public void setLikes(double likes) {
 		this.likes = likes;
 	}
-	public int getComments() {
+	public double getComments() {
 		return comments;
 	}
-	public void setComments(int comments) {
+	public void setComments(double comments) {
 		this.comments = comments;
 	}
-	public int getStream() {
+	public double getStream() {
 		return stream;
 	}
-	public void setStream(int stream) {
+	public void setStream(double stream) {
 		this.stream = stream;
 	}
 	public boolean isLicensed() {
