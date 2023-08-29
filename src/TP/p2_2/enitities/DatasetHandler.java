@@ -5,7 +5,7 @@ import java.util.*;
 
 import TP.p2.classes.Musica;
 
-public class CSVObject {
+public class DatasetHandler {
 	// Fields
 	private String divider, header[];
 	private File file;
@@ -13,7 +13,7 @@ public class CSVObject {
 	private int headerIndex[] = {};
 
 	// Methods - Constructs
-	public CSVObject (File file, String divider, String[] header) {
+	public DatasetHandler (File file, String divider, String[] header) {
 		this.divider = divider;
 		this.file = file;
 		this.header = header;
@@ -50,6 +50,7 @@ public class CSVObject {
 		BufferedReader filerBufferedReader = new BufferedReader(new FileReader(this.file));
 		String header[] = filerBufferedReader.readLine().split(this.divider);
 		String line = filerBufferedReader.readLine();
+		int cont=0;
 		this.headerIndex = new int[this.header.length];
 		
 		// Obtém os indexs do cabeçalho informado
@@ -60,6 +61,7 @@ public class CSVObject {
 		// Converte linhas de um arquivo CSV para objetos de uma lista
 		System.out.println("Saving...");
 		while (line != null) {
+			System.out.println(cont++);
 			Music music = new Music();
 			for(int i : this.headerIndex) {
 				Object data = line.split(divider)[i];
@@ -133,6 +135,7 @@ public class CSVObject {
 	public void exportCSVTo(String path) throws FileNotFoundException, IOException {
 		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(path));
 		String line = "";
+		int cont = 0;
 		
 		// Insere a linha de cabeçario
 		for(int i=0;i<this.header.length;i++) {
@@ -143,6 +146,7 @@ public class CSVObject {
 		// Converte os objetos musica em uma lista para linhas de um arquivo CSV
 		System.out.println("Exporting...");
 		for(Music music : this.musics) {
+			System.out.println(cont++);
 			for(int i : this.headerIndex) {
 				// Melhorar
 				switch(i) {
@@ -165,32 +169,32 @@ public class CSVObject {
 					  line+=music.getEnergy()+this.getDivider();
 				    break;
 				  case 6: // Loudness
-				    break;
+					  break;
 				  case 7: // Speechiness
-					    break;
+					  break;
 				  case 8: // Acousticness
-					    break;
+					  break;
 				  case 9: // Instrumentalness
-					    break;
+					  break;
 				  case 10: // Liveness
-					    break;
+					  break;
 				  case 11: // Valence
-					    break;
+					  break;
 				  case 12: // Time
-					    break;
+					  break;
 				  case 13: // Duration in Minutes
-					  	line+=music.getDurationMin()+this.getDivider();
-					    break;
+					  line+=music.getDurationMin()+this.getDivider();
+					  break;
 				  case 14: // Title
-					    break;
+					  break;
 				  case 15: // Channel
-					    break;
+					  break;
 				  case 16: // Views
-					  	line+=music.getViews()+this.getDivider();
-					    break;
+					  line+=music.getViews()+this.getDivider();
+					  break;
 				  case 17: // Likes
-					  	line+=music.getLikes()+this.getDivider();
-					    break;
+					  line+=music.getLikes()+this.getDivider();
+					  break;
 				  default:
 					  break;
 				}

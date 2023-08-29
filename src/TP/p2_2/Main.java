@@ -7,20 +7,25 @@ import TP.p2_2.enitities.*;
 
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException {		
-//		CSVObject csv = new CSVObject(
-//			new File(System.getProperty("user.dir")+"/src/TP/p2/entrada-de-arquivo/dataset2-entrada.csv"),
-//			";"
-//		);
-//		csv.exportTo(new File(""));
+//		File arquivo = new File(System.getProperty("user.dir")+"/src/TP/p2_2/io/input/input.csv");
+//		String divisor = ";";
+//		String cabecalho[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
+//		
+//		DatasetHandler dataset = new DatasetHandler(arquivo, divisor, cabecalho);
+//		List<Music> musicas = dataset.save();
+//		dataset.exportCSVTo(System.getProperty("user.dir")+"/src/TP/p2_2/io/output/output.csv");
 		
-		// ou
+		Music music1 = new Music();
+		Music music2 = new Music();
+		music1.setTrack("Robocop Gay");
+		music2.setTrack("Pelados em Santos");
 		
-		File arquivo = new File(System.getProperty("user.dir")+"/src/TP/p2_2/input/input2.csv");
-		String divisor = ";";
-		String cabecalho[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
+		MusicList musicList = new MusicList();
+		musicList.addMusic(music1);
+		musicList.addMusic(music2);
 		
-		CSVObject csv = new CSVObject(arquivo, divisor, cabecalho);
-		List<Music> musicas = csv.save();
-		csv.exportCSVTo(System.getProperty("user.dir")+"/src/TP/p2_2/output/output.csv");
+		
+		
+		System.out.println(musicList.toString());
 	}
 }
