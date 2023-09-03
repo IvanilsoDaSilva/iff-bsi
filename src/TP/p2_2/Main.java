@@ -1,7 +1,6 @@
 package TP.p2_2;
 
 import java.io.*;
-import java.util.List;
 
 import TP.p2_2.enitities.*;
 
@@ -13,7 +12,17 @@ public class Main {
 		//teste1
 		File arquivo = new File(System.getProperty("user.dir")+"/src/TP/p2_2/io/input/input3.csv");
 		DatasetHandler dataset = new DatasetHandler(arquivo, divisor, cabecalho);
-		MusicList musicas = dataset.saveList();
+		MusicList musics = dataset.saveList();
+		Music music1 = new Music();
+		Music music2 = new Music();
+		music1.setTrack("Robocop Gay");music1.setArtist("Mamonas Assassinas");
+		music2.setTrack("Pelados em Santos");music2.setArtist("Mamonas Assassinas");
+		musics.add(music1);
+		musics.add(music2);
+		musics.remove("Feel Good Inc.");
+		musics.update(0, new Music());
+		musics.swap(0, 1);
+		dataset.setMusics(musics);
 		
 		dataset.exportCSVTo(System.getProperty("user.dir")+"/src/TP/p2_2/io/output/output1.csv");
 		
@@ -27,9 +36,9 @@ public class Main {
 //		music2.setTrack("Pelados em Santos");music2.setArtist("Mamonas Assassinas");
 //		music3.setTrack("DNA");music3.setArtist("BTS");
 //		
-//		musicList.addMusic(music1);
-//		musicList.addMusic(music2);
-//		musicList.addMusic(music3);
+//		musicList.add(music1);
+//		musicList.add(music2);
+//		musicList.add(music3);
 //		
 //		DatasetHandler dataset = new DatasetHandler(musicList, divisor, cabecalho);
 //		

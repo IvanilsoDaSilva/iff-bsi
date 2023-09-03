@@ -7,25 +7,24 @@ import java.util.NoSuchElementException;
 public class MusicList implements MusicCollection, Iterable<Music> {
 	// Fields
 	private int length = 0;
-	private Knot firstKnot = new Knot();
-	private Knot lastKnot = new Knot();
+	private Knot firstKnot = null;
+	private Knot lastKnot = null;
 	
-	// Methods - Constrcut
-	
+	// Methods - Construct
 	// Methods - Setters and Getters
 	
 	// Methods - Others
 	@Override
-	public boolean addMusic(Music music) {
+	public boolean add(Music music) {
 		boolean sucess = false;
-		if (length == 0) {
-			this.firstKnot.setMusic(music);
+		if (firstKnot == null) {
+			this.firstKnot = new Knot(music, null);
 			this.lastKnot = this.firstKnot;
 			this.length+=1;
 			sucess = true;
 		} else {
-			this.lastKnot.setNextMusic(new Knot(music, null));
-			this.lastKnot = this.lastKnot.getNextMusic();
+			this.lastKnot.setNext(new Knot(music, null));
+			this.lastKnot = this.lastKnot.getNext();
 			this.length+=1;
 			sucess = true;
 		}
@@ -33,15 +32,13 @@ public class MusicList implements MusicCollection, Iterable<Music> {
 	}
 
 	@Override
-	public boolean removeMusic(String nome) {
+	public boolean remove(String nome) {
 		MusicListIterator interator = new MusicListIterator();
 		boolean sucess = false;
 		while(interator.hasNext()) {
-			Music music = interator.currentKnot.getMusic();
-			if (music.getTrack() == nome) {
-				
-				
-				interator.next();
+			Music musicIndex = interator.currentKnot.getMusic();
+			if (musicIndex.getTrack().equalsIgnoreCase(nome)) {
+				interator.remove();
 				sucess = true;
 			} else {
 				interator.next();
@@ -62,11 +59,43 @@ public class MusicList implements MusicCollection, Iterable<Music> {
 
 	@Override
 	public boolean swap(int firstIndex, int secondIndex) {
-		return false;
+		MusicListIterator interator1 = new MusicListIterator();
+		MusicListIterator interator2 = new MusicListIterator();
+		Music aux;
+		boolean sucess = false;
+		
+		if ((firstIndex+secondIndex)/2<=this.length && firstKnot!=null) {
+			for(int i=0;i<firstIndex;i++) {
+				interator1.next();
+			}
+			for(int i=0;i<secondIndex;i++) {
+				interator2.next();
+			}
+			
+			aux = interator1.currentKnot.getMusic();
+			interator1.currentKnot.setMusic(interator2.currentKnot.getMusic());
+			interator2.currentKnot.setMusic(aux);
+			
+			sucess = true;
+		}
+		
+		return sucess;
 	}
 
 	@Override
 	public boolean update(int index, Music music) {
+		MusicListIterator interator = new MusicListIterator();
+		boolean sucess = false;
+		
+		if (firstKnot != null && index<=this.length) {
+			for(int i=0;i<index;i++) {
+				interator.next();
+			}
+			
+			interator.currentKnot.setMusic(music);
+			return true;
+		}
+		
 		return false;
 	}
 	
@@ -78,7 +107,7 @@ public class MusicList implements MusicCollection, Iterable<Music> {
 		while(knot != null) {
 			string = string + knot.getMusic().getTrack()+",";
 			
-			knot = knot.getNextMusic();
+			knot = knot.getNext();
 		}
 		
 		string = string + "}";
@@ -93,6 +122,7 @@ public class MusicList implements MusicCollection, Iterable<Music> {
     private class MusicListIterator implements Iterator<Music> {
         // Aqui usa o mesmo esquema do length (Sobre pq não é "Array.length()" e sim "Array.length")
         private Knot currentKnot = firstKnot;
+        private Knot previousKnot = null;// modificação minha 
 
         @Override
         public boolean hasNext() {
@@ -105,14 +135,30 @@ public class MusicList implements MusicCollection, Iterable<Music> {
                 throw new NoSuchElementException();
             }
 
+            
             Music music = currentKnot.getMusic();
-            currentKnot = currentKnot.getNextMusic();
+            previousKnot = currentKnot;
+            currentKnot = currentKnot.getNext();
             return music;
         }
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("remove() não é suportado.");
+        	if (currentKnot != null) {
+	        	if(currentKnot.getNext() == null) {
+	        		System.out.println("caso 1");
+	        		currentKnot = null;
+	        		previousKnot.setNext(currentKnot);
+	        	} else if (previousKnot == null) {
+	        		System.out.println("caso 2");
+	        		currentKnot = currentKnot.getNext();
+	        		firstKnot = currentKnot;
+	        	} else {
+	        		System.out.println("caso 3");
+	        		currentKnot = previousKnot;
+	        		currentKnot.setNext(currentKnot.getNext().getNext());
+	        	}
+        	}
         }
     }
 }

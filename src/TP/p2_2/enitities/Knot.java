@@ -5,7 +5,7 @@ public class Knot {
 	private Music music;
 	private Knot knot;
 	
-	// Methods - Constrcut
+	// Methods - Construct
 	public Knot() {
 	}
 	public Knot(Music music, Knot knot) {
@@ -20,10 +20,10 @@ public class Knot {
 	public void setMusic(Music music) {
 		this.music = music;
 	}
-	public Knot getNextMusic() {
+	public Knot getNext() {
 		return knot;
 	}
-	public void setNextMusic(Knot knot) {
+	public void setNext(Knot knot) {
 		this.knot = knot;
 	}
 	

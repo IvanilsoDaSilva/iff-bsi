@@ -3,8 +3,6 @@ package TP.p2_2.enitities;
 import java.io.*;
 import java.util.*;
 
-import TP.p2.classes.Musica;
-
 public class DatasetHandler {
 	// Fields
 	private String divider, header[];
@@ -12,7 +10,7 @@ public class DatasetHandler {
 	private MusicList musics = new MusicList();
 	private int headerIndex[] = {};
 
-	// Methods - Constructs
+	// Methods - Construct
 	public DatasetHandler (File file, String divider, String[] header) {
 		this.divider = divider;
 		this.file = file;
@@ -41,9 +39,9 @@ public class DatasetHandler {
 	public MusicList getMusics() {
 		return this.musics;
 	}
-//	public void setMusics(MusicList musics) {
-//		this.musics = musics;
-//	}
+	public void setMusics(MusicList musics) {
+		this.musics = musics;
+	}
 	public String[] getHeader() {
 		return header;
 	}
@@ -67,7 +65,7 @@ public class DatasetHandler {
 		// Converte linhas de um arquivo CSV para objetos de uma lista
 		System.out.println("Saving...");
 		while (line != null) {
-			System.out.println(cont++);
+			System.out.println(++cont); // Soma antes de imprimir. Se fosse cont++ iria imprimir e depois somar
 			Music music = new Music();
 			for(int i : this.headerIndex) {
 				Object data = line.split(divider)[i];
@@ -130,7 +128,7 @@ public class DatasetHandler {
 					}
 				}
 			}
-			this.musics.addMusic(music);
+			this.musics.add(music);
 			line = filerBufferedReader.readLine();
 		}
 		System.out.println("Successfully saved!");
@@ -156,7 +154,7 @@ public class DatasetHandler {
 		// Converte os objetos musica em uma lista para linhas de um arquivo CSV
 		System.out.println("Exporting...");
 		for(Music music : this.musics) {
-			System.out.println(cont++);
+			System.out.println(++cont); // Soma antes de imprimir. Se fosse cont++ iria imprimir e depois somar
 			for(String i : this.header) {
 				// Melhorar
 				switch(i) {

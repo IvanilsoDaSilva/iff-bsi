@@ -1,7 +1,6 @@
 Artist;Track;Danceability;Energy;Duration_min;Views;Likes
-Gorillaz;Feel Good Inc.;818.0;705.0;0.0;6.93555221E8;6220896.0
-Gorillaz;Rhinestone Eyes;676.0;703.0;0.0;7.2011645E7;1079128.0
 Gorillaz;New Gold (feat. Tame Impala and Bootie Brown);695.0;923.0;0.0;8435055.0;282142.0
+null;null;0.0;0.0;0.0;0.0;0.0
 Gorillaz;On Melancholy Hill;689.0;739.0;0.0;2.11754952E8;1788577.0
 Gorillaz;Clint Eastwood;663.0;694.0;5682.0;6.18480958E8;6197318.0
 Gorillaz;DARE;0.76;891.0;0.0;2.59021161E8;1844658.0
@@ -98,3 +97,5 @@ Black Eyed Peas;Pump It;649.0;931.0;0.0;7.55836314E8;4746197.0
 Black Eyed Peas;Pump It Louder;0.66;942.0;264.285;2099141.0;61252.0
 Black Eyed Peas;Meet Me Halfway;798.0;629.0;473.955;4.58724349E8;2094991.0
 Black Eyed Peas;RITMO (Bad Boys For Life);732.0;716.0;0.0;1.021503328E9;6398855.0
+Mamonas Assassinas;Robocop Gay;0.0;0.0;0.0;0.0;0.0
+Mamonas Assassinas;Pelados em Santos;0.0;0.0;0.0;0.0;0.0
