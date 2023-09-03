@@ -9,7 +9,7 @@ public class DatasetHandler {
 	// Fields
 	private String divider, header[];
 	private File file;
-	private List<Music> musics = new ArrayList();
+	private MusicList musics = new MusicList();
 	private int headerIndex[] = {};
 
 	// Methods - Constructs
@@ -19,34 +19,40 @@ public class DatasetHandler {
 		this.header = header;
 	}
 	
+	public DatasetHandler (MusicList musics, String divider, String[] header) {
+		this.divider = divider;
+		this.musics = musics;
+		this.header = header;
+	}
+	
 	// Methods - Getter and Setter
 	public String getDivider() {
 		return divider;
 	}
-	public void setDivider(String divider) {
-		this.divider = divider;
-	}
+//	public void setDivider(String divider) {
+//		this.divider = divider;
+//	}
 	public File getFile() {
 		return file;
 	}
-	public void setFile(File file) {
-		this.file = file;
+//	public void setFile(File file) {
+//		this.file = file;
+//	}
+	public MusicList getMusics() {
+		return this.musics;
 	}
-	public List<Music> getMusics() {
-		return musics;
-	}
-	public void setMusics(List<Music> musics) {
-		this.musics = musics;
-	}
+//	public void setMusics(MusicList musics) {
+//		this.musics = musics;
+//	}
 	public String[] getHeader() {
 		return header;
 	}
-	public void setHeader(String[] header) {
-		this.header = header;
-	}
+//	public void setHeader(String[] header) {
+//		this.header = header;
+//	}
 	
 	// Methods - Others
-	public List<Music> save() throws FileNotFoundException, IOException {
+	public MusicList saveList() throws FileNotFoundException, IOException {
 		BufferedReader filerBufferedReader = new BufferedReader(new FileReader(this.file));
 		String header[] = filerBufferedReader.readLine().split(this.divider);
 		String line = filerBufferedReader.readLine();
@@ -124,12 +130,16 @@ public class DatasetHandler {
 					}
 				}
 			}
-			this.musics.add(music);
+			this.musics.addMusic(music);
 			line = filerBufferedReader.readLine();
 		}
 		System.out.println("Successfully saved!");
 		filerBufferedReader.close();
 		return this.musics;
+	}
+	
+	public MusicVetor saveVetor() {
+		return new MusicVetor();
 	}
 	
 	public void exportCSVTo(String path) throws FileNotFoundException, IOException {
@@ -147,52 +157,52 @@ public class DatasetHandler {
 		System.out.println("Exporting...");
 		for(Music music : this.musics) {
 			System.out.println(cont++);
-			for(int i : this.headerIndex) {
+			for(String i : this.header) {
 				// Melhorar
 				switch(i) {
-				  case 0: // Artist
+				  case "Artist": // Artist
 					  line+=music.getArtist()+this.getDivider();
 					  break;
-				  case 1: // Track
+				  case "Track": // Track
 					  line+=music.getTrack()+this.getDivider();
 				    break;
-				  case 2: // Album
+				  case "Album": // Album
 					  line+=music.getAlbum()+this.getDivider();
 				    break;
-				  case 3: // Album type
+				  case "Album_Type": // Album type
 					  line+=music.getAlbumType()+this.getDivider();
 				    break;
-				  case 4: // Danceability
+				  case "Danceability": // Danceability
 					  line+=music.getDanceability()+this.getDivider();
 				    break;
-				  case 5: // Energy
+				  case "Energy": // Energy
 					  line+=music.getEnergy()+this.getDivider();
 				    break;
-				  case 6: // Loudness
-					  break;
-				  case 7: // Speechiness
-					  break;
-				  case 8: // Acousticness
-					  break;
-				  case 9: // Instrumentalness
-					  break;
-				  case 10: // Liveness
-					  break;
-				  case 11: // Valence
-					  break;
-				  case 12: // Time
-					  break;
-				  case 13: // Duration in Minutes
+//				  case 6: // Loudness
+//					  break;
+//				  case 7: // Speechiness
+//					  break;
+//				  case 8: // Acousticness
+//					  break;
+//				  case 9: // Instrumentalness
+//					  break;
+//				  case 10: // Liveness
+//					  break;
+//				  case 11: // Valence
+//					  break;
+//				  case 12: // Time
+//					  break;
+				  case "Duration_min": // Duration in Minutes
 					  line+=music.getDurationMin()+this.getDivider();
 					  break;
-				  case 14: // Title
-					  break;
-				  case 15: // Channel
-					  break;
-				  case 16: // Views
+//				  case 14: // Title
+//					  break;
+//				  case 15: // Channel
+//					  break;
+				  case "Views": // Views
 					  line+=music.getViews()+this.getDivider();
 					  break;
-				  case 17: // Likes
+				  case "Likes": // Likes
 					  line+=music.getLikes()+this.getDivider();
 					  break;
 				  default:
