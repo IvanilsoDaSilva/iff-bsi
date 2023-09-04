@@ -140,7 +140,7 @@ public class DatasetHandler {
 		return new MusicVetor();
 	}
 	
-	public void exportCSVTo(String path) throws FileNotFoundException, IOException {
+	public void exportToCSV(String path) throws FileNotFoundException, IOException {
 		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(path));
 		String line = "";
 		int cont = 0;

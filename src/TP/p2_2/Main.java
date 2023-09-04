@@ -15,16 +15,25 @@ public class Main {
 		MusicList musics = dataset.saveList();
 		Music music1 = new Music();
 		Music music2 = new Music();
-		music1.setTrack("Robocop Gay");music1.setArtist("Mamonas Assassinas");
+		Music music3 = new Music();
+		music1.setTrack("Robocop Gay");music1.setArtist("Mamonas Assassinas");music1.setDanceability(1.2);
 		music2.setTrack("Pelados em Santos");music2.setArtist("Mamonas Assassinas");
+		music3.setTrack("DNA");music3.setArtist("BTS");
 		musics.add(music1);
 		musics.add(music2);
+		musics.add(music3);
 		musics.remove("Feel Good Inc.");
 		musics.update(0, new Music());
 		musics.swap(0, 1);
+		
 		dataset.setMusics(musics);
 		
-		dataset.exportCSVTo(System.getProperty("user.dir")+"/src/TP/p2_2/io/output/output1.csv");
+		dataset.exportToCSV(System.getProperty("user.dir")+"/src/TP/p2_2/io/output/output1.csv");
+		
+//		System.out.println(musics.getMusic(0));
+//		System.out.println(musics.getMusic(49));
+//		System.out.println(musics.getMusic(100));
+		
 		
 		//teste2
 //		Music music1 = new Music();

@@ -49,6 +49,16 @@ public class MusicList implements MusicCollection, Iterable<Music> {
 
 	@Override
 	public Music getMusic(int index) {
+		MusicListIterator interator = new MusicListIterator();
+		
+		if (firstKnot != null && index<=this.length-1) {
+			for(int i=0;i<=index;i++){
+				
+				interator.next();
+			}
+			return interator.currentKnot.getMusic();
+		}
+		
 		return null;
 	}
 
@@ -64,7 +74,7 @@ public class MusicList implements MusicCollection, Iterable<Music> {
 		Music aux;
 		boolean sucess = false;
 		
-		if ((firstIndex+secondIndex)/2<=this.length && firstKnot!=null) {
+		if ((firstIndex+secondIndex)/2<=this.length-1 && firstKnot!=null) {
 			for(int i=0;i<firstIndex;i++) {
 				interator1.next();
 			}
