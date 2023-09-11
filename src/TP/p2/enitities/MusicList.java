@@ -7,11 +7,17 @@ import TP.p2.interfaces.MusicCollection;
 
 public class MusicList implements MusicCollection, Iterable<Music> {
 	// Fields
-	private int length = 0;
-	private Knot firstKnot = null;
-	private Knot lastKnot = null;
+	private int length;
+	private Knot firstKnot;
+	private Knot lastKnot;
 	
 	// Methods - Construct
+	public MusicList () {
+		this.length = 0;
+		this.firstKnot = null;
+		this.lastKnot = null;
+	}
+	
 	// Methods - Setters and Getters
 	
 	// Methods - Others
@@ -21,7 +27,7 @@ public class MusicList implements MusicCollection, Iterable<Music> {
 		if (firstKnot == null) {
 			this.firstKnot = new Knot(music, null);
 			this.lastKnot = this.firstKnot;
-			this.length+=1;
+			this.length++;
 			sucess = true;
 		} else {
 			this.lastKnot.setNext(new Knot(music, null));
@@ -40,6 +46,7 @@ public class MusicList implements MusicCollection, Iterable<Music> {
 			Music musicIndex = interator.currentKnot.getMusic();
 			if (musicIndex.getTrack().equalsIgnoreCase(nome)) {
 				interator.remove();
+				this.length--;
 				sucess = true;
 			} else {
 				interator.next();
