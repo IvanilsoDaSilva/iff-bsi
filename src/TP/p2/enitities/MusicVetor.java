@@ -3,7 +3,7 @@ package TP.p2.enitities;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import TP.p2_2.interfaces.MusicCollection;
+import TP.p2.interfaces.MusicCollection;
 
 public class MusicVetor implements MusicCollection, Iterable<Music> {
 	// Fields
@@ -32,7 +32,6 @@ public class MusicVetor implements MusicCollection, Iterable<Music> {
 		return sucess;
 	}
 
-	@Override
 	public boolean remove(String nome) {
 		MusicListIterator interator = new MusicListIterator();
 		boolean sucess = false;
@@ -61,7 +60,7 @@ public class MusicVetor implements MusicCollection, Iterable<Music> {
 	}
 
 	@Override
-	public Music getMusic(int index) {
+	public Music get(int index) {
 		Music music;
 		if (index <= this.length()-1) {
 			music = this.musics[index];

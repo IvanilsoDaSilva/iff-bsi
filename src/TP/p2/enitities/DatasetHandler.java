@@ -137,7 +137,7 @@ public class DatasetHandler {
 	}
 	
 	public MusicVetor saveVetor() {
-		return new MusicVetor();
+		return new MusicVetor(0);
 	}
 	
 	public void exportToCSV(String path) throws FileNotFoundException, IOException {
