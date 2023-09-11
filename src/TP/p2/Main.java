@@ -2,20 +2,55 @@ package TP.p2;
 
 import java.io.*;
 
-import java.util.*;
-
-import TP.p2.classes.*;
+import TP.p2.enitities.*;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		ManipuladorDeCSV manipulador = new ManipuladorDeCSV(
-			System.getProperty("user.dir")+"/src/TP/p2/entrada-de-arquivo/dataset2-entrada.csv",
-			System.getProperty("user.dir")+"/src/TP/p2/saida-de-arquivo/dataset-saida.csv",
-			";", new String[] {"music", }
-
-		);
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		String divisor = ";";
+		String cabecalho[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
 		
-//		ArrayList<Musica> musicas = manipulador.importacao();
-		manipulador.exportacao(manipulador.importacao());
+		//teste1
+		File arquivo = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input3.csv");
+		DatasetHandler dataset = new DatasetHandler(arquivo, divisor, cabecalho);
+		MusicList musics = dataset.saveList();
+		Music music1 = new Music();
+		Music music2 = new Music();
+		Music music3 = new Music();
+		music1.setTrack("Robocop Gay");music1.setArtist("Mamonas Assassinas");music1.setDanceability(1.2);
+		music2.setTrack("Pelados em Santos");music2.setArtist("Mamonas Assassinas");
+		music3.setTrack("DNA");music3.setArtist("BTS");
+		musics.add(music1);
+		musics.add(music2);
+		musics.add(music3);
+		musics.remove("Feel Good Inc.");
+		musics.update(0, new Music());
+		musics.swap(0, 1);
+		
+		dataset.setMusics(musics);
+		
+		dataset.exportToCSV(System.getProperty("user.dir")+"/src/TP/p2/io/output/output1.csv");
+		
+//		System.out.println(musics.getMusic(0));
+//		System.out.println(musics.getMusic(49));
+//		System.out.println(musics.getMusic(100));
+		
+		
+		//teste2
+//		Music music1 = new Music();
+//		Music music2 = new Music();
+//		Music music3 = new Music();
+//		MusicList musicList = new MusicList();
+//		
+//		music1.setTrack("Robocop Gay");music1.setArtist("Mamonas Assassinas");
+//		music2.setTrack("Pelados em Santos");music2.setArtist("Mamonas Assassinas");
+//		music3.setTrack("DNA");music3.setArtist("BTS");
+//		
+//		musicList.add(music1);
+//		musicList.add(music2);
+//		musicList.add(music3);
+//		
+//		DatasetHandler dataset = new DatasetHandler(musicList, divisor, cabecalho);
+//		
+//		dataset.exportCSVTo(System.getProperty("user.dir")+"/src/TP/p2_2/io/output/output2.csv");
 	}
 }
