@@ -9,6 +9,7 @@ public class Main {
 		String divider = ";";
 		String header[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
 		DatasetHandler datasetHandler = new DatasetHandler();
+		SelectionSort selectionSort = new SelectionSort();
 		
 		/*
 		 * Seleção do tamanho do arquivo da Dataset
@@ -49,6 +50,8 @@ public class Main {
 		list.add(music3);
 		list.add(music4);
 		list.add(music5);
+		
+		selectionSort.sort(list);
 		
 		datasetHandler.objectToFile(outputFile, list, divider, header);
 	}

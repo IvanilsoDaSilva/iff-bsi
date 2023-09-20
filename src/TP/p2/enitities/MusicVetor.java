@@ -81,13 +81,31 @@ public class MusicVetor implements MusicCollection {
 
 	@Override
 	public boolean swap(int firstIndex, int secondIndex) {
-		// TODO Auto-generated method stub
-		return false;
+		MusicListIterator interator1 = new MusicListIterator();
+		MusicListIterator interator2 = new MusicListIterator();
+		Music aux;
+		boolean sucess = false;
+		
+		if ((firstIndex+secondIndex)/2<=this.length-1 && last!=0) {
+			for(int i=0;i<firstIndex;i++) {
+				interator1.next();
+			}
+			for(int i=0;i<secondIndex;i++) {
+				interator2.next();
+			}
+			
+			aux = this.musics[interator1.currentIndex];
+			this.musics[interator1.currentIndex] = this.musics[interator2.currentIndex];
+			this.musics[interator2.currentIndex] = aux;
+			
+			sucess = true;
+		}
+		
+		return sucess;
 	}
 
 	@Override
 	public boolean update(int index, Music music) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

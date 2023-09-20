@@ -117,7 +117,7 @@ public class DatasetHandler {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public File objectToFile(File file, MusicCollection collenction, String divider, String[] header) throws FileNotFoundException, IOException {
+	public File objectToFile(File file, MusicCollection collection, String divider, String[] header) throws FileNotFoundException, IOException {
 		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(file));
 		String line = "";
 		
@@ -128,7 +128,7 @@ public class DatasetHandler {
 		line = line.substring(0, line.length()-1)+"\n"; // Pega o cabecalho reovendo o ultimo divisor
 		
 		// Converte os objetos musica em uma lista para linhas de um arquivo CSV
-		for(Music music : collenction) {
+		for(Music music : collection) {
 			for(String i : header) {
 				// Melhorar
 				switch(i) {
