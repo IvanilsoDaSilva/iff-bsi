@@ -10,12 +10,27 @@ public class Main {
 		String header[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
 		DatasetHandler datasetHandler = new DatasetHandler();
 		
-		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-99.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-99.csv");
+		/*
+		 * Seleção do tamanho do arquivo da Dataset
+		 * 
+		 * Respectivamente:
+		 * 99 linhas
+		 * 5079 linhas
+		 * 20594 linhas (Arquivo completo)
+		 */
+//		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-99.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-99.csv");
 //		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-5079.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-5079.csv");
-//		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-20594.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-20594.csv");
+		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-20594.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-20594.csv");
 		
-//		MusicList list = new MusicList(); // Lista encadeada
-		MusicVetor list = new MusicVetor(200); // Lista vetorizada
+		/*
+		 * Seleção do tipo da lista
+		 * 
+		 * Respectivamente:
+		 * Lista encadeada
+		 * Lista vetorizada
+		 */
+		MusicList list = new MusicList(); // Lista encadeada
+//		MusicVetor list = new MusicVetor(200); // Lista vetorizada
 		
 		datasetHandler.fileToObject(inputFile, list, divider, header);
 		
