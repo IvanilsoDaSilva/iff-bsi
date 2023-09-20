@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 import TP.p2.interfaces.MusicCollection;
 
-public class MusicVetor implements MusicCollection, Iterable<Music> {
+public class MusicVetor implements MusicCollection {
 	// Fields
 	private Music musics[];
 	private int last, length;

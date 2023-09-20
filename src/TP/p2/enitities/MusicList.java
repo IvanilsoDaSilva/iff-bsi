@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 import TP.p2.interfaces.MusicCollection;
 
-public class MusicList implements MusicCollection, Iterable<Music> {
+public class MusicList implements MusicCollection {
 	// Fields
 	private int length;
 	private Knot firstKnot;

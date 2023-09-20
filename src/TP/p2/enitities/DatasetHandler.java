@@ -2,64 +2,29 @@ package TP.p2.enitities;
 
 import java.io.*;
 import java.util.*;
+import TP.p2.interfaces.MusicCollection;
 
 public class DatasetHandler {
 	// Fields
-	private String divider, header[];
-	private File file;
-	private MusicList musics = new MusicList();
-	private int headerIndex[] = {};
 
 	// Methods - Construct
-	public DatasetHandler (File file, String divider, String[] header) {
-		this.divider = divider;
-		this.file = file;
-		this.header = header;
-	}
 	
-	public DatasetHandler (MusicList musics, String divider, String[] header) {
-		this.divider = divider;
-		this.musics = musics;
-		this.header = header;
-	}
+	public DatasetHandler() {}
 	
 	// Methods - Getter and Setter
-	public String getDivider() {
-		return divider;
-	}
-//	public void setDivider(String divider) {
-//		this.divider = divider;
-//	}
-	public File getFile() {
-		return file;
-	}
-//	public void setFile(File file) {
-//		this.file = file;
-//	}
-	public MusicList getMusics() {
-		return this.musics;
-	}
-	public void setMusics(MusicList musics) {
-		this.musics = musics;
-	}
-	public String[] getHeader() {
-		return header;
-	}
-//	public void setHeader(String[] header) {
-//		this.header = header;
-//	}
 	
 	// Methods - Others
-	public MusicList saveList() throws FileNotFoundException, IOException {
-		BufferedReader filerBufferedReader = new BufferedReader(new FileReader(this.file));
-		String header[] = filerBufferedReader.readLine().split(this.divider);
+	public MusicCollection fileToObject(File file, MusicCollection collenction, String divider, String[] header) throws FileNotFoundException, IOException {
+		BufferedReader filerBufferedReader = new BufferedReader(new FileReader(file));
+		String headerFull[] = filerBufferedReader.readLine().split(divider);
 		String line = filerBufferedReader.readLine();
 		int cont=0;
-		this.headerIndex = new int[this.header.length];
+		int[] headerIndex = new int[header.length];
+		
 		
 		// Obtém os indexs do cabeçalho informado
-		for(int i=0;i<this.header.length;i++) {
-			this.headerIndex[i] = Arrays.asList(header).indexOf(this.header[i]);
+		for(int i=0;i<header.length;i++) {
+			headerIndex[i] = Arrays.asList(headerFull).indexOf(header[i]);
 		}
 		
 		// Converte linhas de um arquivo CSV para objetos de uma lista
@@ -67,7 +32,7 @@ public class DatasetHandler {
 		while (line != null) {
 			System.out.println(++cont); // Soma antes de imprimir. Se fosse cont++ iria imprimir e depois somar
 			Music music = new Music();
-			for(int i : this.headerIndex) {
+			for(int i : headerIndex) {
 				Object data = line.split(divider)[i];
 				if (i<0) {
 					break;
@@ -128,53 +93,49 @@ public class DatasetHandler {
 					}
 				}
 			}
-			this.musics.add(music);
+			collenction.add(music);
 			line = filerBufferedReader.readLine();
 		}
 		System.out.println("Successfully saved!");
 		filerBufferedReader.close();
-		return this.musics;
+		return collenction;
 	}
 	
-	public MusicVetor saveVetor() {
-		return new MusicVetor(0);
-	}
-	
-	public void exportToCSV(String path) throws FileNotFoundException, IOException {
-		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(path));
+	public File objectToFile(File file, MusicCollection collenction, String divider, String[] header) throws FileNotFoundException, IOException {
+		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(file));
 		String line = "";
 		int cont = 0;
 		
 		// Insere a linha de cabeçario
-		for(int i=0;i<this.header.length;i++) {
-			line+=this.header[i]+this.divider;
+		for(int i=0;i<header.length;i++) {
+			line+=header[i]+divider;
 		}
 		line = line.substring(0, line.length()-1)+"\n"; // Pega o cabecalho reovendo o ultimo divisor
 		
 		// Converte os objetos musica em uma lista para linhas de um arquivo CSV
 		System.out.println("Exporting...");
-		for(Music music : this.musics) {
+		for(Music music : collenction) {
 			System.out.println(++cont); // Soma antes de imprimir. Se fosse cont++ iria imprimir e depois somar
-			for(String i : this.header) {
+			for(String i : header) {
 				// Melhorar
 				switch(i) {
 				  case "Artist": // Artist
-					  line+=music.getArtist()+this.getDivider();
+					  line+=music.getArtist()+divider;
 					  break;
 				  case "Track": // Track
-					  line+=music.getTrack()+this.getDivider();
+					  line+=music.getTrack()+divider;
 				    break;
 				  case "Album": // Album
-					  line+=music.getAlbum()+this.getDivider();
+					  line+=music.getAlbum()+divider;
 				    break;
 				  case "Album_Type": // Album type
-					  line+=music.getAlbumType()+this.getDivider();
+					  line+=music.getAlbumType()+divider;
 				    break;
 				  case "Danceability": // Danceability
-					  line+=music.getDanceability()+this.getDivider();
+					  line+=music.getDanceability()+divider;
 				    break;
 				  case "Energy": // Energy
-					  line+=music.getEnergy()+this.getDivider();
+					  line+=music.getEnergy()+divider;
 				    break;
 //				  case 6: // Loudness
 //					  break;
@@ -191,17 +152,17 @@ public class DatasetHandler {
 //				  case 12: // Time
 //					  break;
 				  case "Duration_min": // Duration in Minutes
-					  line+=music.getDurationMin()+this.getDivider();
+					  line+=music.getDurationMin()+divider;
 					  break;
 //				  case 14: // Title
 //					  break;
 //				  case 15: // Channel
 //					  break;
 				  case "Views": // Views
-					  line+=music.getViews()+this.getDivider();
+					  line+=music.getViews()+divider;
 					  break;
 				  case "Likes": // Likes
-					  line+=music.getLikes()+this.getDivider();
+					  line+=music.getLikes()+divider;
 					  break;
 				  default:
 					  break;
@@ -213,5 +174,7 @@ public class DatasetHandler {
 		
 		arquivoBuferizado.write(line);
 		arquivoBuferizado.close();
+		
+		return file;
 	}
 }

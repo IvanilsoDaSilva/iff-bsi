@@ -2,7 +2,7 @@ package TP.p2.interfaces;
 
 import TP.p2.enitities.Music;
 
-public interface MusicCollection {
+public interface MusicCollection extends Iterable<Music> {
 	public boolean add(Music music);
 	public boolean remove(String nome);
 	public Music get(int index);
