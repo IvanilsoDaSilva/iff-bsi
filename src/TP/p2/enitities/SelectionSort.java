@@ -13,29 +13,29 @@ public class SelectionSort implements Sorter {
 	}
 	
 	private void selectionSort(MusicCollection collection) {
-		int size = collection.length();
-		Iterator<Music> iterator = collection.iterator();
-		
-		for (int i = 0; i < size - 1; i++) {
+        int size = collection.length();
+        Iterator<Music> iterator = collection.iterator();
+
+        Music currentValue;
+        for (int i = 0; i < size - 1; i++) {
             int minIndex = i;
             Music minValue = iterator.next();
             Iterator<Music> innerIterator = collection.iterator();
-
-            for (int j = 0; j < i; j++) {
-                innerIterator.next();
-            }
+            currentValue = innerIterator.next();
+			/*
+			 * for (int j = 0; j < i; j++) { innerIterator.next(); }
+			 */
 
             for (int j = i + 1; j < size; j++) {
-                Music currentValue = innerIterator.next();
+                //Music currentValue = innerIterator.next();
 
-                if (currentValue.getTrack().compareTo(minValue.toString()) < 0) {
+                if (currentValue.getTrack().compareTo(minValue.getTrack()) < 0) {
                     minIndex = j;
                     minValue = currentValue;
-                    
-                    collection.swap(minIndex, currentValue);
+
+                    collection.swap(minIndex, i);
                 }
             }
-		}
-
-	}
+        }
+    }
 }
