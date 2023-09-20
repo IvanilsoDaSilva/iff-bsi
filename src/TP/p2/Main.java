@@ -8,29 +8,16 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		String divider = ";";
 		String header[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
-		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-99.csv");
-		File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-99.csv");
-		MusicList musicList = new MusicList();
-		
-//		//teste1
-//		File arquivo = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input3.csv");
-//		DatasetHandler dataset = new DatasetHandler(arquivo, divisor, cabecalho);
-//		MusicList musics = dataset.saveList();
-//		Music music1 = new Music();
-//		Music music2 = new Music();
-//		Music music3 = new Music();
-//		music1.setTrack("Robocop Gay");music1.setArtist("Mamonas Assassinas");music1.setDanceability(1.2);
-//		music2.setTrack("Pelados em Santos");music2.setArtist("Mamonas Assassinas");
-//		music3.setTrack("DNA");music3.setArtist("BTS");
-//		musics.add(music1);
-//		musics.add(music2);
-//		musics.add(music3);
-//		musics.remove("Feel Good Inc.");
-//		musics.update(0, new Music());
-//		musics.swap(0, 1);
-		
 		DatasetHandler datasetHandler = new DatasetHandler();
-		datasetHandler.fileToObject(inputFile, musicList, divider, header);
+		
+		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-99.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-99.csv");
+//		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-5079.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-5079.csv");
+//		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-20594.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-20594.csv");
+		
+//		MusicList list = new MusicList(); // Lista encadeada
+		MusicVetor list = new MusicVetor(200); // Lista vetorizada
+		
+		datasetHandler.fileToObject(inputFile, list, divider, header);
 		
 		Music music1 = new Music();
 		Music music2 = new Music();
@@ -40,12 +27,14 @@ public class Main {
 		music1.setTrack("Robocop Gay");music1.setArtist("Mamonas Assassinas");music1.setDanceability(1.2);
 		music2.setTrack("Pelados em Santos");music2.setArtist("Mamonas Assassinas");
 		music3.setTrack("DNA");music3.setArtist("BTS");
-		music4.setTrack("Cupido");music3.setArtist("Pericles");
-		musicList.add(music1);
-		musicList.add(music2);
-		musicList.add(music3);
-		musicList.add(music4);
+		music4.setTrack("Cupido");music4.setArtist("Pericles");
+		music5.setTrack("Thriller");music5.setArtist("Michael Jackson");
+		list.add(music1);
+		list.add(music2);
+		list.add(music3);
+		list.add(music4);
+		list.add(music5);
 		
-		datasetHandler.objectToFile(outputFile, musicList, divider, header);
+		datasetHandler.objectToFile(outputFile, list, divider, header);
 	}
 }

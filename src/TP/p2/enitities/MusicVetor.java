@@ -9,16 +9,20 @@ public class MusicVetor implements MusicCollection {
 	// Fields
 	private Music musics[];
 	private int last, length;
-		
+	
 	// Methods - Construct
+	/**
+	 * Instancia um novo objeto do tipo @MusicVetor
+	 * 
+	 * @param size
+	 */
 	public MusicVetor (int size) {
 		this.last = 0;
 		this.musics = new Music[size];
 		this.length = size;
 	}
-	// Methods - Setters and Getters
+	
 	// Methods - Others
-
 	@Override
 	public boolean add(Music music) {
 		boolean sucess = false;
@@ -98,7 +102,7 @@ public class MusicVetor implements MusicCollection {
 
         @Override
         public boolean hasNext() {
-            return currentIndex < length()-1;
+            return currentIndex < last-1;
         }
 
         @Override

@@ -5,20 +5,28 @@ import java.util.*;
 import TP.p2.interfaces.MusicCollection;
 
 public class DatasetHandler {
-	// Fields
-
 	// Methods - Construct
-	
+	/**
+	 * Instancia um novo objeto do tipo @DatasetHandler
+	 */
 	public DatasetHandler() {}
 	
-	// Methods - Getter and Setter
-	
 	// Methods - Others
+	/**
+	 * Transporta os dados de um arquivo CSV para uma lista de objetos
+	 * 
+	 * @param file
+	 * @param collenction
+	 * @param divider
+	 * @param header
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public MusicCollection fileToObject(File file, MusicCollection collenction, String divider, String[] header) throws FileNotFoundException, IOException {
 		BufferedReader filerBufferedReader = new BufferedReader(new FileReader(file));
 		String headerFull[] = filerBufferedReader.readLine().split(divider);
 		String line = filerBufferedReader.readLine();
-		int cont=0;
 		int[] headerIndex = new int[header.length];
 		
 		
@@ -28,9 +36,7 @@ public class DatasetHandler {
 		}
 		
 		// Converte linhas de um arquivo CSV para objetos de uma lista
-		System.out.println("Saving...");
 		while (line != null) {
-			System.out.println(++cont); // Soma antes de imprimir. Se fosse cont++ iria imprimir e depois somar
 			Music music = new Music();
 			for(int i : headerIndex) {
 				Object data = line.split(divider)[i];
@@ -96,15 +102,24 @@ public class DatasetHandler {
 			collenction.add(music);
 			line = filerBufferedReader.readLine();
 		}
-		System.out.println("Successfully saved!");
 		filerBufferedReader.close();
 		return collenction;
 	}
 	
+	/**
+	 * Transporta os dados de uma lista de objetos para um arquivo CSV
+	 * 
+	 * @param file
+	 * @param collenction
+	 * @param divider
+	 * @param header
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public File objectToFile(File file, MusicCollection collenction, String divider, String[] header) throws FileNotFoundException, IOException {
 		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(file));
 		String line = "";
-		int cont = 0;
 		
 		// Insere a linha de cabeçario
 		for(int i=0;i<header.length;i++) {
@@ -113,9 +128,7 @@ public class DatasetHandler {
 		line = line.substring(0, line.length()-1)+"\n"; // Pega o cabecalho reovendo o ultimo divisor
 		
 		// Converte os objetos musica em uma lista para linhas de um arquivo CSV
-		System.out.println("Exporting...");
 		for(Music music : collenction) {
-			System.out.println(++cont); // Soma antes de imprimir. Se fosse cont++ iria imprimir e depois somar
 			for(String i : header) {
 				// Melhorar
 				switch(i) {
@@ -170,7 +183,6 @@ public class DatasetHandler {
 			}
 			line = line.substring(0, line.length()-1)+"\n";
 		}
-		System.out.println("Exporting successfully!");
 		
 		arquivoBuferizado.write(line);
 		arquivoBuferizado.close();

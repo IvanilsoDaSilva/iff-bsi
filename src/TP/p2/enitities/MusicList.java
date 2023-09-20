@@ -12,6 +12,9 @@ public class MusicList implements MusicCollection {
 	private Knot lastKnot;
 	
 	// Methods - Construct
+	/**
+	 * Instancia um novo objeto do tipo @MusicList
+	 */
 	public MusicList () {
 		this.length = 0;
 		this.firstKnot = null;
