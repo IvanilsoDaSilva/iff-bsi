@@ -18,9 +18,9 @@ public class Main {
 		 * 5079 linhas
 		 * 20594 linhas (Arquivo completo)
 		 */
-//		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-99.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-99.csv");
+		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-99.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-99.csv");
 //		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-5079.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-5079.csv");
-		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-20594.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-20594.csv");
+//		File inputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/input/input-20594.csv"); File outputFile = new File(System.getProperty("user.dir")+"/src/TP/p2/io/output/output-20594.csv");
 		
 		/*
 		 * Seleção do tipo da lista

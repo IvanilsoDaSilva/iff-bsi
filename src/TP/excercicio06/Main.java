@@ -16,7 +16,7 @@ public class Main {
 		System.out.println(exemplo);
 		System.out.println(arquivoOdt);
 		
-		Files.copy(exemplo, arquivoOdt, null);
+//		Files.copy(exemplo, arquivoOdt, null);
 		
 //		arquivoOdt.renameTo(new File(saida+"/saida.zip"));
 		
