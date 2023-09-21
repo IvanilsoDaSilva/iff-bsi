@@ -1,8 +1,10 @@
 package TP.p2.enitities;
 
 import java.io.*;
+
 import java.util.*;
-import TP.p2.interfaces.MusicCollection;
+
+import TP.p2.interfaces.*;
 
 public class DatasetHandler {
 	// Methods - Construct
@@ -188,5 +190,9 @@ public class DatasetHandler {
 		arquivoBuferizado.close();
 		
 		return file;
+	}
+	
+	public void sort(MusicCollection collection, Sorter sorter) {
+		sorter.sort(collection);
 	}
 }
