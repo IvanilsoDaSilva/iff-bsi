@@ -25,7 +25,7 @@ public class DatasetHandler {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public MusicCollection fileToObject(File file, MusicCollection collenction, String divider, String[] header) throws FileNotFoundException, IOException {
+	public static MusicCollection fileToObject(File file, MusicCollection collenction, String divider, String[] header) throws FileNotFoundException, IOException {
 		BufferedReader filerBufferedReader = new BufferedReader(new FileReader(file));
 		String headerFull[] = filerBufferedReader.readLine().split(divider);
 		String line = filerBufferedReader.readLine();
@@ -119,7 +119,7 @@ public class DatasetHandler {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public File objectToFile(File file, MusicCollection collection, String divider, String[] header) throws FileNotFoundException, IOException {
+	public static File objectToFile(File file, MusicCollection collection, String divider, String[] header) throws FileNotFoundException, IOException {
 		BufferedWriter arquivoBuferizado = new BufferedWriter(new FileWriter(file));
 		String line = "";
 		
@@ -192,7 +192,7 @@ public class DatasetHandler {
 		return file;
 	}
 	
-	public void sort(MusicCollection collection, Sorter sorter) {
-		sorter.sort(collection);
-	}
+//	public void sort(MusicCollection collection, Sorter sorter) {
+//		sorter.sort(collection);
+//	}
 }

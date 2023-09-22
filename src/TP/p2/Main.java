@@ -8,9 +8,6 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		String divider = ";";
 		String header[] = {"Artist", "Track" ,"Danceability", "Energy", "Duration_min", "Views", "Likes"};
-		DatasetHandler datasetHandler = new DatasetHandler();
-		SelectionSort selectionSort = new SelectionSort();
-		BubbleSort bubbleSort = new BubbleSort();
 		
 		/*
 		 * Seleção do tamanho do arquivo da Dataset
@@ -34,7 +31,7 @@ public class Main {
 		MusicList list = new MusicList(); // Lista encadeada
 //		MusicVetor list = new MusicVetor(200); // Lista vetorizada
 		
-		datasetHandler.fileToObject(inputFile, list, divider, header);
+		DatasetHandler.fileToObject(inputFile, list, divider, header);
 		
 //		Music music1 = new Music();
 //		Music music2 = new Music();
@@ -52,11 +49,9 @@ public class Main {
 //		list.add(music4);
 //		list.add(music5);
 		
-//		datasetHandler.sort(list, selectionSort);
-//		datasetHandler.sort(list, bubbleSort);
+		list.sort(new SelectionSort());
+		list.sort(new BubbleSort());
 		
-		selectionSort.sort(list);
-		
-		datasetHandler.objectToFile(outputFile, list, divider, header);
+		DatasetHandler.objectToFile(outputFile, list, divider, header);
 	}
 }

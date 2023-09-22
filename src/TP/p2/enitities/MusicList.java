@@ -3,7 +3,7 @@ package TP.p2.enitities;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import TP.p2.interfaces.MusicCollection;
+import TP.p2.interfaces.*;
 
 public class MusicList implements MusicCollection {
 	// Fields
@@ -118,6 +118,11 @@ public class MusicList implements MusicCollection {
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public void sort(Sorter sort) {
+		sort.sort(this);
 	}
 	
 	@Override

@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import TP.p2.interfaces.MusicCollection;
+import TP.p2.interfaces.Sorter;
 
 public class MusicVetor implements MusicCollection {
 	// Fields
@@ -107,6 +108,12 @@ public class MusicVetor implements MusicCollection {
 	@Override
 	public boolean update(int index, Music music) {
 		return false;
+	}
+	
+	
+	@Override
+	public void sort(Sorter sort) {
+		sort.sort(this);
 	}
 
 	@Override
