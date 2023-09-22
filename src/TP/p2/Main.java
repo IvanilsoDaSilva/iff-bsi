@@ -32,6 +32,7 @@ public class Main {
 //		MusicVetor list = new MusicVetor(200); // Lista vetorizada
 		
 		DatasetHandler.fileToObject(inputFile, list, divider, header);
+		System.out.println("Importado para objeto com sucesso!");
 		
 //		Music music1 = new Music();
 //		Music music2 = new Music();
@@ -49,9 +50,11 @@ public class Main {
 //		list.add(music4);
 //		list.add(music5);
 		
-		list.sort(new SelectionSort());
-		list.sort(new BubbleSort());
+//		list.sort(new SelectionSort());
+//		list.sort(new BubbleSort());
+		
 		
 		DatasetHandler.objectToFile(outputFile, list, divider, header);
+		System.out.println("Exportado para CSV com sucesso!");
 	}
 }
