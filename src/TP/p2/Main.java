@@ -2,9 +2,9 @@ package TP.p2;
 
 import java.io.*;
 
-import TP.p2.enitities.*;
-import TP.p2.enitities.datastructure.MusicList;
+import TP.p2.controllers.*;
 import TP.p2.enitities.sorters.*;
+import TP.p2.enitities.datastructure.*;
 
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException {

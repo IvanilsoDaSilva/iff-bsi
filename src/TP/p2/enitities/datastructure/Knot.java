@@ -1,6 +1,6 @@
 package TP.p2.enitities.datastructure;
 
-import TP.p2.enitities.Music;
+import TP.p2.enitities.*;
 
 public class Knot {
 	// Fields

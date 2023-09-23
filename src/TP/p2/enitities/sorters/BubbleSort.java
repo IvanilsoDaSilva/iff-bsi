@@ -1,6 +1,6 @@
 package TP.p2.enitities.sorters;
 
-import TP.p2.interfaces.MusicCollection;
+import TP.p2.interfaces.*;
 import TP.p2.interfaces.Sorter;
 
 public class BubbleSort implements Sorter {

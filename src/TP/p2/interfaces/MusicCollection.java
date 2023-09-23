@@ -1,6 +1,6 @@
 package TP.p2.interfaces;
 
-import TP.p2.enitities.Music;
+import TP.p2.enitities.*;
 
 public interface MusicCollection extends Iterable<Music> {
 	public boolean add(Music music);
