@@ -3,6 +3,10 @@ package TP.p2.enitities.sorters;
 import TP.p2.interfaces.*;
 import TP.p2.interfaces.Sorter;
 
+import java.util.Iterator;
+
+import TP.p2.enitities.*;
+
 public class BubbleSort implements Sorter {
 
 	@Override
@@ -23,5 +27,22 @@ public class BubbleSort implements Sorter {
                 }
             }
         }
+		
+//		boolean swapped;
+//        do {
+//            swapped = false;
+//            Iterator<Music> iterator = collection.iterator();
+//            Music prev = iterator.next();
+//            while (iterator.hasNext()) {
+//            	Music current = iterator.next();
+//                if (prev.getTrack().compareTo(current.getTrack()) > 0) {
+//                	Music temp = prev;
+//                    prev = current;
+//                    current = temp;
+//                    swapped = true;
+//                }
+//                prev = current;
+//            }
+//        } while (swapped);
 	}
 }

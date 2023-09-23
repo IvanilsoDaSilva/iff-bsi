@@ -31,11 +31,12 @@ public class Main {
 		 * Lista encadeada
 		 * Lista vetorizada
 		 */
-//		MusicList list = new MusicList(); // Lista encadeada
-		MusicVetor list = new MusicVetor(200); // Lista vetorizada
+		MusicList list = new MusicList(); // Lista encadeada
+//		MusicVetor list = new MusicVetor(200); // Lista vetorizada
 		
+		System.out.print("Importando para lista...");
 		DatasetHandler.fileToObject(inputFile, list, divider, header);
-		System.out.println("Importado para objeto com sucesso!");
+		System.out.println("Importado com sucesso!");
 		
 		Music music1 = new Music();
 		Music music2 = new Music();
@@ -53,10 +54,12 @@ public class Main {
 		list.add(music4);
 		list.add(music5);
 		
+		System.out.print("Ordenando lista...");
 //		list.sort(new SelectionSort());
 		list.sort(new BubbleSort());
 		System.out.println("Ordenado com sucesso!");
 
+		System.out.print("Exportando para CSV...");
 		DatasetHandler.objectToFile(outputFile, list, divider, header);
 		System.out.println("Exportado para CSV com sucesso!");
 	}
