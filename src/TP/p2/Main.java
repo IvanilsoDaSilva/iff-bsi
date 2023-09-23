@@ -3,6 +3,8 @@ package TP.p2;
 import java.io.*;
 
 import TP.p2.enitities.*;
+import TP.p2.enitities.datastructure.MusicList;
+import TP.p2.enitities.sorters.*;
 
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
@@ -51,7 +53,7 @@ public class Main {
 //		list.add(music5);
 		
 //		list.sort(new SelectionSort());
-//		list.sort(new BubbleSort());
+		list.sort(new BubbleSort());
 		
 		
 		DatasetHandler.objectToFile(outputFile, list, divider, header);

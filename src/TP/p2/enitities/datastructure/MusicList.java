@@ -1,8 +1,9 @@
-package TP.p2.enitities;
+package TP.p2.enitities.datastructure;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import TP.p2.enitities.Music;
 import TP.p2.interfaces.*;
 
 public class MusicList implements MusicCollection {

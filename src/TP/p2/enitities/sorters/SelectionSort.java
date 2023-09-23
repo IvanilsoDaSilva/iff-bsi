@@ -1,7 +1,8 @@
-package TP.p2.enitities;
+package TP.p2.enitities.sorters;
 
 import java.util.Iterator;
 
+import TP.p2.enitities.Music;
 import TP.p2.interfaces.MusicCollection;
 import TP.p2.interfaces.Sorter;
 
