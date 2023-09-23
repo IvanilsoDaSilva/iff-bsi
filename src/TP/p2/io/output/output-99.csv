@@ -1,6 +1,4 @@
 Artist;Track;Danceability;Energy;Duration_min;Views;Likes
-Gorillaz;Feel Good Inc.;818.0;705.0;0.0;6.93555221E8;6220896.0
-50 Cent;21 Questions;576.0;807.0;374.045;5.03248572E8;2759199.0
 Coldplay;A Sky Full of Stars;545.0;675.0;446.445;7.86404613E8;3741300.0
 Daft Punk;Around the World;956.0;795.0;0.0;3.8218353E7;466569.0
 AC/DC;Back In Black;0.31;0.7;0.0;9.15158054E8;5643694.0
@@ -15,6 +13,7 @@ Gorillaz;Clint Eastwood;663.0;694.0;5682.0;6.18480958E8;6197318.0
 Gorillaz;Cracker Island (feat. Thundercat);741.0;913.0;3.5625;2.445982E7;739527.0
 Linkin Park;Crawling;0.58;702.0;0.0;3.74506972E8;2197293.0
 Radiohead;Creep;515.0;0.43;0.0;7.63497849E8;4777393.0
+Pericles;Cupido;0.0;0.0;0.0;0.0;0.0
 Red Hot Chili Peppers;Dani California;556.0;913.0;0.0;3.24228662E8;1456622.0
 Gorillaz;DARE;0.76;891.0;0.0;2.59021161E8;1844658.0
 Red Hot Chili Peppers;Dark Necessities;0.7;742.0;0.0;4.40037964E8;2094182.0
@@ -22,11 +21,13 @@ Daft Punk;Digital Love;644.0;664.0;0.0;3.007939E7;203063.0
 AC/DC;Dirty Deeds Done Dirt Cheap;668.0;906.0;386.555;852728.0;14044.0
 Gorillaz;Dirty Harry;625.0;877.0;0.0;1.54761056E8;1386920.0
 50 Cent;Disco Inferno;925.0;659.0;357.045;3.9825951E7;382791.0
+BTS;DNA;0.0;0.0;0.0;0.0;0.0
 Black Eyed Peas;DON'T YOU WORRY;831.0;868.0;0.0;1.44690551E8;1327396.0
 Metallica;Enter Sandman (Remastered);566.0;834.0;5526.0;5.73553706E8;2828795.0
 Radiohead;Exit Music (For A Film);293.0;276.0;0.0;1.0644157E7;171322.0
 Linkin Park;Faint;554.0;978.0;2.71;3.78323695E8;2061834.0
 Radiohead;Fake Plastic Trees;463.0;229.0;0.0;6.1340263E7;398951.0
+Gorillaz;Feel Good Inc.;818.0;705.0;0.0;6.93555221E8;6220896.0
 Coldplay;Fix You;209.0;417.0;492.555;5.66239229E8;2962029.0
 Metallica;For Whom The Bell Tolls (Remastered);512.0;0.86;0.0;2.3666398E7;274106.0
 Daft Punk;Get Lucky (feat. Pharrell Williams & Nile Rodgers);0.81;793.0;616.045;3.2310867E7;956073.0
@@ -71,9 +72,12 @@ Red Hot Chili Peppers;Otherside;458.0;795.0;0.0;6.73528656E8;3140356.0
 50 Cent;P.I.M.P.;0.7;758.0;0.0;5.72659065E8;3334710.0
 Linkin Park;Papercut;524.0;939.0;0.0;2.40834555E8;1400306.0
 Coldplay;Paradise;449.0;585.0;0.0;1.665814269E9;8497224.0
+Mamonas Assassinas;Pelados em Santos;0.0;0.0;0.0;0.0;0.0
 Black Eyed Peas;Pump It;649.0;931.0;0.0;7.55836314E8;4746197.0
 Black Eyed Peas;Pump It Louder;0.66;942.0;264.285;2099141.0;61252.0
 Gorillaz;Rhinestone Eyes;676.0;703.0;0.0;7.2011645E7;1079128.0
+Black Eyed Peas;RITMO (Bad Boys For Life);732.0;716.0;0.0;1.021503328E9;6398855.0
+Mamonas Assassinas;Robocop Gay;1.2;0.0;0.0;0.0;0.0
 AC/DC;Rock N Roll Train;547.0;931.0;435.845;1.8237531E7;119749.0
 Metallica;Sad But True (Remastered);624.0;876.0;5.41;7.2737062E7;418124.0
 Red Hot Chili Peppers;Scar Tissue;595.0;717.0;359.845;4.3512153E8;1890900.0
@@ -87,6 +91,7 @@ Coldplay;Sparks;371.0;268.0;0.0;7.3201019E7;787343.0
 AC/DC;T.N.T.;754.0;759.0;0.0;2.40908491E8;934797.0
 Coldplay;The Scientist;557.0;442.0;5.16;1.082588109E9;5532787.0
 Metallica;The Unforgiven (Remastered);531.0;583.0;0.0;4.26125708E8;1781690.0
+Michael Jackson;Thriller;0.0;0.0;0.0;0.0;0.0
 AC/DC;Thunderstruck;502.0;0.89;0.0;1.22422606E9;5989128.0
 Red Hot Chili Peppers;Under the Bridge;559.0;345.0;0.0;2.46687714E8;1213572.0
 Daft Punk;Veridis Quo;605.0;687.0;0.0;2.398407E7;216822.0
@@ -97,4 +102,3 @@ Black Eyed Peas;Where Is The Love?;834.0;699.0;0.0;8.88076529E8;4899065.0
 Metallica;Whiskey In The Jar;511.0;972.0;508.155;1.07553434E8;429797.0
 Coldplay;Yellow;429.0;661.0;0.0;8.32532409E8;4600933.0
 AC/DC;You Shook Me All Night Long;532.0;767.0;0.0;2.79117834E8;1348845.0
-Black Eyed Peas;RITMO (Bad Boys For Life);732.0;716.0;0.0;1.021503328E9;6398855.0

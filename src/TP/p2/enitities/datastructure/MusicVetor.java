@@ -28,7 +28,7 @@ public class MusicVetor implements MusicCollection {
 	@Override
 	public boolean add(Music music) {
 		boolean sucess = false;
-		if (this.last < this.length()-1) {
+		if (this.last < this.length-1) {
 			this.musics[last] = music;
 			last++;
 			sucess = true;
@@ -78,7 +78,7 @@ public class MusicVetor implements MusicCollection {
 
 	@Override
 	public int length() {
-		return this.length;
+		return this.last;
 	}
 
 	@Override
