@@ -3,6 +3,7 @@ package TP.p2;
 import java.io.*;
 
 import TP.p2.controllers.*;
+import TP.p2.enitities.*;
 import TP.p2.enitities.sorters.*;
 import TP.p2.enitities.datastructure.*;
 
@@ -54,8 +55,8 @@ public class Main {
 		
 //		list.sort(new SelectionSort());
 		list.sort(new BubbleSort());
-		
-		
+		System.out.println("Ordenado com sucesso!");
+
 		DatasetHandler.objectToFile(outputFile, list, divider, header);
 		System.out.println("Exportado para CSV com sucesso!");
 	}

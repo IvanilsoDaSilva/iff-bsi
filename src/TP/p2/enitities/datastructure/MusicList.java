@@ -11,6 +11,7 @@ public class MusicList implements MusicCollection {
 	private int length;
 	private Knot firstKnot;
 	private Knot lastKnot;
+	private MusicListIterator interator;
 	
 	// Methods - Construct
 	/**
@@ -25,21 +26,25 @@ public class MusicList implements MusicCollection {
 	// Methods - Setters and Getters
 	
 	// Methods - Others
+	private void interatorGenerate(int index) {
+		if (index < this.interator.currentIndex) {
+			this.interator = new MusicListIterator();
+		}
+	}
+	
 	@Override
 	public boolean add(Music music) {
-		boolean sucess = false;
 		if (firstKnot == null) {
 			this.firstKnot = new Knot(music, null);
 			this.lastKnot = this.firstKnot;
 			this.length++;
-			sucess = true;
+			this.interator = new MusicListIterator();
 		} else {
 			this.lastKnot.setNext(new Knot(music, null));
 			this.lastKnot = this.lastKnot.getNext();
 			this.length+=1;
-			sucess = true;
 		}
-		return sucess;
+		return true;
 	}
 
 	@Override
@@ -61,14 +66,13 @@ public class MusicList implements MusicCollection {
 
 	@Override
 	public Music get(int index) {
-		MusicListIterator interator = new MusicListIterator();
+		interatorGenerate(index);
 		
 		if (firstKnot != null && index<=this.length-1) {
-			for(int i=0;i<=index;i++){
-				
-				interator.next();
+			for(int i=this.interator.currentIndex;i<index;i++){
+				this.interator.next();
 			}
-			return interator.currentKnot.getMusic();
+			return this.interator.currentKnot.getMusic();
 		}
 		
 		return null;
@@ -106,15 +110,15 @@ public class MusicList implements MusicCollection {
 
 	@Override
 	public boolean update(int index, Music music) {
-		MusicListIterator interator = new MusicListIterator();
+		interatorGenerate(index);
 		boolean sucess = false;
 		
 		if (firstKnot != null && index<=this.length) {
-			for(int i=0;i<index;i++) {
-				interator.next();
+			for(int i=this.interator.currentIndex;i<index;i++){
+				this.interator.next();
 			}
 			
-			interator.currentKnot.setMusic(music);
+			this.interator.currentKnot.setMusic(music);
 			return true;
 		}
 		
@@ -122,8 +126,8 @@ public class MusicList implements MusicCollection {
 	}
 	
 	@Override
-	public void sort(Sorter sort) {
-		sort.sort(this);
+	public void sort(Sorter sorter) {
+		sorter.sort(this);
 	}
 	
 	@Override
@@ -147,10 +151,16 @@ public class MusicList implements MusicCollection {
     }
 
     private class MusicListIterator implements Iterator<Music> {
-        // Aqui usa o mesmo esquema do length (Sobre pq não é "Array.length()" e sim "Array.length")
-        private Knot currentKnot = firstKnot;
-        private Knot previousKnot = null;// modificação minha 
-
+        private Knot currentKnot;
+        private Knot previousKnot;
+        private int currentIndex;
+        
+        public MusicListIterator() {
+        	this.currentKnot = firstKnot;
+        	this.previousKnot = null;
+        	this.currentIndex = 0;
+        }
+        
         @Override
         public boolean hasNext() {
             return currentKnot != null;
@@ -162,10 +172,10 @@ public class MusicList implements MusicCollection {
                 throw new NoSuchElementException();
             }
 
-            
-            Music music = currentKnot.getMusic();
-            previousKnot = currentKnot;
-            currentKnot = currentKnot.getNext();
+            this.currentIndex++;
+            Music music = this.currentKnot.getMusic();
+            this.previousKnot = this.currentKnot;
+            this.currentKnot = this.currentKnot.getNext();
             return music;
         }
 
@@ -173,15 +183,12 @@ public class MusicList implements MusicCollection {
         public void remove() {
         	if (currentKnot != null) {
 	        	if(currentKnot.getNext() == null) {
-	        		System.out.println("caso 1");
 	        		currentKnot = null;
 	        		previousKnot.setNext(currentKnot);
 	        	} else if (previousKnot == null) {
-	        		System.out.println("caso 2");
 	        		currentKnot = currentKnot.getNext();
 	        		firstKnot = currentKnot;
 	        	} else {
-	        		System.out.println("caso 3");
 	        		currentKnot = previousKnot;
 	        		currentKnot.setNext(currentKnot.getNext().getNext());
 	        	}
