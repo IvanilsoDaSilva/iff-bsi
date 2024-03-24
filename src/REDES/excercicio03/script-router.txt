@@ -1,0 +1,28 @@
+enable
+configure terminal
+
+hostname ROUTER
+
+ipv6 unicast-routing
+
+interface GigabitEthernet0/0
+ipv6 address 2001:1FF:9:1::/64
+no shutdown
+exit
+
+interface GigabitEthernet0/1
+ipv6 address 2001:1FF:9:2::1/64
+no shutdown
+exit
+
+line console 0
+password 202211200238
+login
+exit
+
+enable secret 202211200238
+exit
+
+copy running-config startup-config
+
+exit
