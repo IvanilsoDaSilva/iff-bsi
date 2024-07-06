@@ -25,6 +25,9 @@ public fun main() {
     println("\nb) "+ b(matrixA));
     println("\nc) "+ c(matrixA));
     println("\nd) "+ d(matrixA));
+    println("\ne) "+ e(matrixA));
+    println("\nf) "+ f(matrixA));
+    println("\ng) "+ g(matrixA));
 }
 
 public fun a(matrix: Array<IntArray>): Int {
@@ -77,6 +80,51 @@ public fun d(matrix: Array<IntArray>): Int {
         for (j in 0 until columns) {
             if (i == j) {
                 sum += matrix[i][j];
+            }
+        }
+    }
+    return sum;
+}
+
+public fun e(matrix: Array<IntArray>): Int {
+    val rows = matrix.size;
+    val columns = matrix[0].size;
+    var sum = 0;
+
+    for (i in 0 until rows) {
+        for (j in 0 until columns) {
+            if (i < j) {
+                sum += matrix[i][j];
+            }
+        }
+    }
+    return sum;
+}
+
+public fun f(matrix: Array<IntArray>): Int {
+    val rows = matrix.size;
+    val columns = matrix[0].size;
+    var sum = 0;
+
+    for (i in 0 until rows) {
+        for (j in 0 until columns) {
+            if (i > j) {
+                sum += matrix[i][j];
+            }
+        }
+    }
+    return sum;
+}
+
+public fun g(matrix: Array<IntArray>): Int {
+    val rows = matrix.size;
+    val columns = matrix[0].size;
+    var sum = 0;
+
+    for (i in 0 until rows) {
+        for (j in 0 until columns) {
+            if (i < j) {
+                sum += matrix[i][j] * matrix[j][i];
             }
         }
     }
