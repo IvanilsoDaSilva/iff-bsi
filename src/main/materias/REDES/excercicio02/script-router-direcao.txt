@@ -1,0 +1,36 @@
+enable
+configure terminal
+
+hostname ROUTER-DIRECAO
+
+interface gigabitEthernet 0/0
+ip address 10.9.0.1 255.255.255.0
+no shutdown
+exit
+
+interface gigabitEthernet 0/1
+ip address 10.9.1.1 255.255.255.0
+no shutdown
+exit
+
+ip dhcp excluded-address 10.9.1.1 10.9.1.10
+ip dhcp pool ROUTER-DIRECAO
+network 10.9.1.0 255.255.255.0
+default-router 10.9.1.1
+dns-server 8.8.8.8
+exit
+
+ip route 10.9.2.0 255.255.255.0 10.9.0.2
+ip route 10.9.3.0 255.255.255.0 10.9.0.3
+
+line console 0
+password 202211200238
+login
+exit
+
+enable secret 202211200238
+exit
+
+copy running-config startup-config
+
+exit

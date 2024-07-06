@@ -1,0 +1,21 @@
+enable
+configure terminal
+
+hostname SW-CORE
+
+interface vlan1
+ip address 10.9.3.2 255.255.255.0
+no shutdown
+exit
+
+line console 0
+password 202211200238
+login
+exit
+
+enable secret 202211200238
+exit
+
+copy running-config startup-config
+
+exit

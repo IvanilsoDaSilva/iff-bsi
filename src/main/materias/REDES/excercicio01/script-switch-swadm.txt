@@ -1,0 +1,23 @@
+enable
+configure terminal
+
+hostname SWADM
+
+interface vlan1
+ip address 172.16.9.2 255.255.255.0
+no shutdown
+exit
+
+ip default-gateway 172.16.9.1
+
+line console 0
+password 202211200238
+login
+exit
+
+enable secret 202211200238
+exit
+
+copy running-config startup-config
+
+exit

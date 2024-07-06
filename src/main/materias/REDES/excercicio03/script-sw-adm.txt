@@ -1,0 +1,23 @@
+enable
+configure terminal
+
+hostname SW-ADM
+
+ipv6 unicast-routing
+
+interface vlan1
+ipv6 address 2001:1FF:9:1::2/64
+no shutdown
+exit
+
+line console 0
+password 202211200238
+login
+exit
+
+enable secret 202211200238
+exit
+
+copy running-config startup-config
+
+exit
