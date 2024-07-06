@@ -1,9 +1,10 @@
 package PO.excercicio01;
 
 import java.util.Scanner;
+import kotlin.random.Random
 
 // Função para printar a matriz
-public fun printMatrix(matrix: Array<IntArray>) {
+private fun printMatrix(matrix: Array<IntArray>) {
     for (row in matrix) {
         for (element in row) {
             print("$element ");
@@ -12,7 +13,7 @@ public fun printMatrix(matrix: Array<IntArray>) {
     }
 }
 
-public fun printMatrix(matrix: IntArray) {
+private fun printMatrix(matrix: IntArray) {
     for (element in matrix) {
         print("$element ");
     }
@@ -39,10 +40,10 @@ public fun main() {
     println("\ng) "+ g(matrixA));
     println("\nh) "+ h(matrixA));
     print("\ni) "); printMatrix(i(matrixA))
-    print("\ni) "); printMatrix(j(matrixA))
+    print("\nj) "); printMatrix(j(matrixA))
 }
 
-public fun a(matrix: Array<IntArray>): Int {
+private fun a(matrix: Array<IntArray>): Int {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
@@ -55,7 +56,7 @@ public fun a(matrix: Array<IntArray>): Int {
     return sum;
 }
 
-public fun b(matrix: Array<IntArray>): Int {
+private fun b(matrix: Array<IntArray>): Int {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
@@ -68,7 +69,7 @@ public fun b(matrix: Array<IntArray>): Int {
     return sum;
 }
 
-public fun c(matrix: Array<IntArray>): Int {
+private fun c(matrix: Array<IntArray>): Int {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
@@ -83,7 +84,7 @@ public fun c(matrix: Array<IntArray>): Int {
     return sum;
 }
 
-public fun d(matrix: Array<IntArray>): Int {
+private fun d(matrix: Array<IntArray>): Int {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
@@ -98,7 +99,7 @@ public fun d(matrix: Array<IntArray>): Int {
     return sum;
 }
 
-public fun e(matrix: Array<IntArray>): Int {
+private fun e(matrix: Array<IntArray>): Int {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
@@ -113,7 +114,7 @@ public fun e(matrix: Array<IntArray>): Int {
     return sum;
 }
 
-public fun f(matrix: Array<IntArray>): Int {
+private fun f(matrix: Array<IntArray>): Int {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
@@ -128,7 +129,7 @@ public fun f(matrix: Array<IntArray>): Int {
     return sum;
 }
 
-public fun g(matrix: Array<IntArray>): Int {
+private fun g(matrix: Array<IntArray>): Int {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
@@ -143,7 +144,7 @@ public fun g(matrix: Array<IntArray>): Int {
     return sum;
 }
 
-public fun h(matrix: Array<IntArray>): Int {
+private fun h(matrix: Array<IntArray>): Int {
     val input = Scanner(System.`in`);
 
     val rows = matrix.size;
@@ -161,12 +162,12 @@ public fun h(matrix: Array<IntArray>): Int {
     return x*sum;
 }
 
-public fun i(matrix: Array<IntArray>): IntArray {
+private fun i(matrix: Array<IntArray>): IntArray {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
 
-    var vectorV = intArrayOf(0,0,0,0,0);
+    var vectorV = IntArray(matrix.size);
 
     for (i in 0 until rows) {
         for (j in 0 until columns) {
@@ -177,12 +178,12 @@ public fun i(matrix: Array<IntArray>): IntArray {
     return vectorV;
 }
 
-public fun j(matrix: Array<IntArray>): IntArray {
+private fun j(matrix: Array<IntArray>): IntArray {
     val rows = matrix.size;
     val columns = matrix[0].size;
     var sum = 0;
 
-    var vectorV = intArrayOf(1,1,1,1,1);
+    var vectorV = IntArray(matrix.size) {1};
 
     for (i in 0 until rows) {
         for (j in 0 until columns) {
