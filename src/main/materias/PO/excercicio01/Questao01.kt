@@ -1,4 +1,6 @@
-package PO.excercicio01
+package PO.excercicio01;
+
+import java.util.Scanner;
 
 // Função para printar a matriz
 public fun printMatrix(matrix: Array<IntArray>) {
@@ -8,6 +10,13 @@ public fun printMatrix(matrix: Array<IntArray>) {
         }
         println();
     }
+}
+
+public fun printMatrix(matrix: IntArray) {
+    for (element in matrix) {
+        print("$element ");
+    }
+    println();
 }
 
 public fun main() {
@@ -28,6 +37,9 @@ public fun main() {
     println("\ne) "+ e(matrixA));
     println("\nf) "+ f(matrixA));
     println("\ng) "+ g(matrixA));
+    println("\nh) "+ h(matrixA));
+    print("\ni) "); printMatrix(i(matrixA))
+    print("\ni) "); printMatrix(j(matrixA))
 }
 
 public fun a(matrix: Array<IntArray>): Int {
@@ -129,4 +141,54 @@ public fun g(matrix: Array<IntArray>): Int {
         }
     }
     return sum;
+}
+
+public fun h(matrix: Array<IntArray>): Int {
+    val input = Scanner(System.`in`);
+
+    val rows = matrix.size;
+    val columns = matrix[0].size;
+    var sum = 0;
+    print("Escreva o valor de x a ser multiplicado pela soma da matriz: ")
+    var x = input.nextInt();
+
+    for (i in 0 until rows) {
+        for (j in 0 until columns) {
+            sum += matrix[i][j];
+        }
+    }
+
+    return x*sum;
+}
+
+public fun i(matrix: Array<IntArray>): IntArray {
+    val rows = matrix.size;
+    val columns = matrix[0].size;
+    var sum = 0;
+
+    var vectorV = intArrayOf(0,0,0,0,0);
+
+    for (i in 0 until rows) {
+        for (j in 0 until columns) {
+            vectorV[j] += matrix[i][j];
+        }
+    }
+
+    return vectorV;
+}
+
+public fun j(matrix: Array<IntArray>): IntArray {
+    val rows = matrix.size;
+    val columns = matrix[0].size;
+    var sum = 0;
+
+    var vectorV = intArrayOf(1,1,1,1,1);
+
+    for (i in 0 until rows) {
+        for (j in 0 until columns) {
+            vectorV[i] *= matrix[i][j];
+        }
+    }
+
+    return vectorV;
 }
